@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
    font-size: calc(4px + 1vw);
-  font-family: 'EuclidCircularAVN-Regular';
+  font-family: "Red Rose", serif;
   color: #FFF;
   line-height: 1.5;
   background: #FFF;
@@ -118,14 +118,15 @@ img{
 }
 .page-main .md-form input{
   width: 12.5%;
-  padding: 12% 0px;
+  padding: 10% 0px;
   border-radius: 5px;
   border: none;
   background: #f2cde2;
   text-align: center;
   vertical-align: bottom;
   outline: none;
-  font-size: 50px;
+  font-size: calc(20px + 3vw);
+  line-height: 1;
       display: flex;
       justify-content: center;
       align-items: flex-end;   /* chữ xuống đáy input */
@@ -344,12 +345,15 @@ img{
 .md-product .product-1 p{
   margin-bottom: 0px;
   text-align: center;
-  font-size: calc(5px + 0.5vw);
+  font-size: calc(6px + 1vw);
+  font-weight: 600;
   color: #000;
+  line-height: 1;
 }
 .md-product .product-1 p.giacu{
   text-decoration: line-through;
   color: #FFF;
+  font-size: calc(5px + 0.8vw);
 }
 .md-product .product-2{
   left: 41%;
