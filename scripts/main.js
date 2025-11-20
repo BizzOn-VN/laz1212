@@ -129,3 +129,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ⭐️ KHU VỰC CẦN CỐ ĐỊNH: Danh sách mã hợp lệ (Hardcoded cho mục đích Demo/Test)
+    const VALID_CODES = ["1212STCN", "11122000"]; 
+    const CODE_LENGTH = VALID_CODES[0].length; 
+    const NEXT_PAGE_URL = "./step-2.html";
+    // -------------------------------------------------------------------------
+    
+    const otpContainer = document.querySelector('.md-form');
+    const inputs = document.querySelectorAll('.code-input');
+    const submitButton = document.querySelector('.md-text-2');
+    const targetElement = document.querySelector('.page-main');
+
+    // Hàm Thu thập Mã từ các ô input
+    const getEnteredCode = () => {
+        return Array.from(inputs).map(input => input.value).join('').toUpperCase(); 
+    };
+
+    // Hàm Xóa Lỗi và thông báo
+    const removeErrorClass = () => {
+        otpContainer.classList.remove('active');
+    };
+
+    // Hàm Thêm Lỗi, xóa mã và focus lại
+    const addErrorClass = () => {
+        otpContainer.classList.add('active');
+        inputs.forEach(input => input.value = ''); 
+        inputs[0].focus(); 
+    };
+    
+    // --- Hàm Logic Xác nhận ---
+    const handleSubmission = (event) => {
+        event.preventDefault(); // Ngăn form gửi đi
+        
+        const enteredCode = getEnteredCode();
+
+        // 1. Kiểm tra độ dài mã
+        if (enteredCode.length !== CODE_LENGTH) { 
+            addErrorClass(); 
+            return;
+        }
+
+        // 2. So sánh mã
+        if (VALID_CODES.includes(enteredCode)) {
+            removeErrorClass();
+            
+            // ⭐️ HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
+            if (targetElement) {
+                 targetElement.classList.add('page-exit'); 
+            }
+            
+            // Chờ hiệu ứng chạy xong rồi chuyển hướng
+            setTimeout(() => {
+                window.location.replace(NEXT_PAGE_URL); 
+            }, 500);
+
+        } else {
+            // MÃ SAI
+            addErrorClass();
+        }
+    };
+    
+    // --- Logic Tương tác Input (Tự động nhảy ô, Backspace) ---
+    inputs.forEach((input, index) => {
+        
+        // Tự động chuyển tiếp khi nhập xong 1 ký tự
+        input.addEventListener('input', () => {
+            removeErrorClass(); // Xóa lỗi ngay khi người dùng bắt đầu nhập lại
+            if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        });
+        
+        // Tự động quay lại khi nhấn Backspace
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                inputs[index - 1].focus();
+            }
+        });
+    });
+
+    // Gắn sự kiện cho Nút Xác Nhận
+    if (submitButton) {
+        submitButton.addEventListener('click', handleSubmission);
+    }
+});

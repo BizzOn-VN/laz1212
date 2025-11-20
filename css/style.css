@@ -412,3 +412,16 @@ img{
 .page-step-2 .md-row.active-4 .md-text-4{
   opacity: 1;
 }
+
+
+.page-main .md-form.active input{
+  border: red 1px solid;
+}
+.page-main {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+.page-main.page-exit {
+    /* Trang mờ dần khi chuyển hướng */
+    opacity: 0; 
+}
