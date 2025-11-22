@@ -217,3 +217,22 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.addEventListener('click', handleSubmission);
     }
 });
+
+function scrollToDiv(elementId) {
+    setTimeout(() => {
+        const targetDiv = document.getElementById(elementId);
+        
+        // Kiểm tra xem phần tử có tồn tại không
+        if (targetDiv) {
+
+            // Thực hiện cuộn trang mượt mà
+            targetDiv.scrollIntoView({
+                behavior: 'smooth', // Cuộn mượt mà
+                block: 'start'      // Đặt phần tử ở đầu viewport
+            });
+        } else {
+            console.error(`Không tìm thấy phần tử với ID: ${elementId}`);
+        }
+        
+    }, 4500);
+}
