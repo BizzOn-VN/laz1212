@@ -94,31 +94,71 @@ img{
 }
 .page-main .md-text-1{
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 16%;
+  left: 28%;
+  top: 24%;
   width: 44%;
+  animation: md-text-1 4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes md-text-1{
+  0%{
+    transform: scale(1.0);
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  35%{
+    transform: scale(1.2);
+  }
+  40%{
+    transform: scale(1.0);
+  }
+  45%{
+    transform: scale(1.2);
+  }
+  50%{
+    transform: scale(1.0);
+  }
+  55%{
+    transform: scale(1.2);
+  }
+  60%{
+    transform: scale(1.0);
+  }
+  100%{
+    transform: scale(1.0);
+    opacity: 1;
+  }
 }
 .page-main .md-form{
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 41%;
+  left: 10%;
+  top: 44%;
+  width: 80%;
+}
+.page-main .md-form .img-1{
   width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 .page-main .md-form form{
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  width: 70%;
+  width: 45%;
   display: flex;
       gap: 10px;
       justify-content: center;
 }
 .page-main .md-form input{
   width: 12.5%;
-  padding: 10% 0px;
+  padding: 4% 0px;
   border-radius: 5px;
   border: none;
   background: #f2cde2;
@@ -134,55 +174,178 @@ img{
       background-image: linear-gradient(#a11d6f, #a11d6f);
           background-repeat: no-repeat;
           background-size: 60% 1px;     /* độ dài gạch */
-          background-position: center bottom 15px; 
+          background-position: center bottom 10px; 
 }
 
 .page-main .md-text-2{
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 78%;
-  width: 25%;
+  left: 37.5%;
+  top: 73%;
+  width: 24%;
 }
-
+.page-main .md-text-2:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+.page-main .logo{
+  width: 18%;
+  position: absolute;
+  left: 41%;
+  top: 10%;
+}
+.page-main .md-text-3{
+  position: absolute;
+  left: 29.5%;
+  width: 41%;
+  top: 37.5%;
+  text-align: center;
+  font-weight: 600;
+}
 .page-step-2{
   position: relative;
 }
 .page-step-2 .md-text-3{
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 4.5%;
-    width: 40%;
+  left: 23%;
+  top: 7.5%;
+    width: 54%;
 }
 
 .page-step-2 .md-row .md-col-1{
   position: absolute;
-  left: 0%;
-    top: 18%;
-    width: 38.5%;
+  left: 29.5%;
+    top: 38.5%;
+    width: 19.5%;
   cursor: url("../images/msp-1.png"), auto;
+}
+.page-step-2 .md-row .md-col-4:hover{
+  transform: scale(1.4);
+  transition-duration: 0.5s;
+  animation: md-col-4 1s;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+@keyframes md-col-4{
+  0%{
+    top: 51%;
+  }
+  100%{
+    top: 44%;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-1{
+  animation: md-col-1 1s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+@keyframes md-col-1{
+  0%{
+    left: 29.5%;
+  }
+  100%{
+    left: 24.5%;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-2{
+  animation: md-col-2 1s;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+@keyframes md-col-2{
+  0%{
+    left: 42.5%;
+  }
+  100%{
+    left: 32%;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-3{
+  animation: md-col-3 1s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+@keyframes md-col-3{
+  0%{
+    right: 30.7%;
+  }
+  100%{
+    right: 27%;
+  }
+}
+.page-step-2 .md-row .md-col-2:hover{
+  transform: scale(1.4);
+  transition-duration: 0.5s;
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-1{
+  animation: md-col-1-2 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes md-col-1-2{
+  0%{
+    left: 29.5%;
+    top: 38.5%;
+  }
+  100%{
+    left: 27.5%;
+    top: 48.5%;
+  }
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-3{
+  animation: md-col-3-2 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes md-col-3-2{
+  0%{
+    right: 30.7%;
+    top: 36.5%;
+  }
+  100%{
+    right: 28.7%;
+    top: 48.5%;
+  }
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-4{
+  animation: md-col-4-2 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes md-col-4-2{
+  0%{
+    top: 51%;
+  }
+  100%{
+    top: 55%;
+  }
+}
+.page-step-2 .md-row .md-col-1:hover{
+   transform: scale(1.4);
+  transition-duration: 0.5s;
+}
+.page-step-2 .md-row .md-col-3:hover{
+   transform: scale(1.4);
+  transition-duration: 0.5s;
 }
 .page-step-2 .md-row .md-col-2{
   position: absolute;
-      left: 26%;
-    top: 18%;
-    width: 24.5%;
+  left: 42.5%;
+    top: 31%;
+    width: 15.5%;
   cursor: url("../images/msp-2.png"), auto;
+  z-index: 3;
 }
 .page-step-2 .md-row .md-col-3{
   position: absolute;
-  right: 26.5%;
-    top: 18%;
-    width: 24%;
+  right: 30.7%;
+    top: 36.5%;
+    width: 20%;
   cursor: url("../images/msp-2.png"), auto;
 }
 .page-step-2 .md-row .md-col-4{
   position: absolute;
-  right: 0%;
-    top: 18%;
-    width: 39%;
+  right: 40%;
+    top: 51%;
+    width: 21%;
   cursor: url("../images/msp-2.png"), auto;
+  z-index: 4;
 }
 .page-step-2 .md-row .md-col{
   cursor: none;
@@ -204,13 +367,14 @@ img{
   height: auto;         /* giữ nguyên kích thước ảnh */
   pointer-events: none;
 }
+
 .page-step-2 .md-row.active-2 .md-col-1, .page-step-2 .md-row.active-3 .md-col-1, .page-step-2 .md-row.active-4 .md-col-1{
-  animation: moveout-1 2s;
+  animation: moveout-1 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes moveout-1{
   0%{
-    left: 0%;
+    left: 29.5%;
   }
   100%{
     left: -100%;
@@ -218,12 +382,12 @@ img{
   }
 }
 .page-step-2 .md-row.active-1 .md-col-2, .page-step-2 .md-row.active-3 .md-col-2, .page-step-2 .md-row.active-4 .md-col-2{
-  animation: moveout-2 2s;
+  animation: moveout-2 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes moveout-2{
   0%{
-    left: 26%;
+    left: 42.5%;
   }
   100%{
     left: -100%;
@@ -231,12 +395,12 @@ img{
   }
 }
 .page-step-2 .md-row.active-1 .md-col-3, .page-step-2 .md-row.active-2 .md-col-3, .page-step-2 .md-row.active-4 .md-col-3{
-  animation: moveout-3 2s;
+  animation: moveout-3 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes moveout-3{
   0%{
-    right: 26.5%;
+    right: 30.7%;
   }
   100%{
     right: -100%;
@@ -249,169 +413,76 @@ img{
 }
 @keyframes moveout-4{
   0%{
-    right: 0%;
+    top: 51%;
   }
   100%{
-    right: 100%;
+    top: 100%;
     display: none;
   }
 }
 .page-step-2 .md-row.active-1 .md-col-1{
-  animation: movein-1 2s;
+  animation: movein-1 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-1{
   0%{
-    left: 0%;
+    left: 29.5%;
+    transform: scale(1.0);
   }
   100%{
-    left: 50%;
-    transform: translateX(-50%);
+    left: 40%;
+    transform: scale(1.3);
   }
 }
 .page-step-2 .md-row.active-2 .md-col-2{
-  animation: movein-2 2s;
+  animation: movein-2 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-2{
   0%{
-    left: 26%;
+    left: 42.5%;
+    transform: scale(1.0);
   }
   100%{
-    left: 50%;
-    transform: translateX(-50%);
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
   }
 }
 
 .page-step-2 .md-row.active-3 .md-col-3{
-  animation: movein-3 2s;
+  animation: movein-3 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-3{
   0%{
-    right: 26.5%;
+    right: 30.7%;
+    transform: scale(1.0);
   }
   100%{
-    right: 50%;
-    transform: translateX(50%);
+    right: 40%;
+    transform: scale(1.3);
   }
 }
 .page-step-2 .md-row.active-4 .md-col-4{
-  animation: movein-4 2s;
+  animation: movein-4 1.5s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-4{
   0%{
-    right: 0%;
+    right: 40%;
+    transform: scale(1.0);
   }
   100%{
-    right: 50%;
-    transform: translateX(50%);
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
   }
 }
 
-.md-product{
-  width: 78%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 60%;
-  opacity: 0;
-}
-
-.page-step-2 .md-row.active-1 .md-product{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-2 .md-product{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-3 .md-product{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-4 .md-product{
-  opacity: 1;
-}
 
 
-.md-product .product-1{
-  position: absolute;
-  left: 17%;
-  top: 40%;
-  width: 18%;
-}
-.md-product .product-1 img{
-  margin-bottom: 10px;
-}
-.md-product .product-1 p{
-  margin-bottom: 0px;
-  text-align: center;
-  font-size: calc(6px + 1vw);
-  font-weight: 600;
-  color: #000;
-  line-height: 1;
-}
-.md-product .product-1 p.giacu{
-  text-decoration: line-through;
-  color: #FFF;
-  font-size: calc(5px + 0.8vw);
-}
-.md-product .product-2{
-  left: 41%;
-}
-.md-product .product-3{
-  left: 64.5%;
-}
 
-.btn-cf{
-  opacity: 0;
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  width: 25%;
-  transform: translateX(-50%);
-}
-.page-step-2 .md-row.active-1 .btn-cf{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-2 .btn-cf{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-3 .btn-cf{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-4 .btn-cf{
-  opacity: 1;
-}
-.page-step-2 .md-row .md-text-3{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-1 .md-text-3{
-  opacity: 0;
-}
-.page-step-2 .md-row.active-2 .md-text-3{
-  opacity: 0;
-}
-.page-step-2 .md-row.active-3 .md-text-3{
-  opacity: 0;
-}
-.page-step-2 .md-row.active-4 .md-text-3{
-  opacity: 0;
-}
-.page-step-2 .md-row .md-text-4{
-  opacity: 0;
-}
-.page-step-2 .md-row.active-1 .md-text-4{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-2 .md-text-4{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-3 .md-text-4{
-  opacity: 1;
-}
-.page-step-2 .md-row.active-4 .md-text-4{
-  opacity: 1;
-}
 
 
 .page-main .md-form.active input{
@@ -629,4 +700,136 @@ img{
       opacity: 0;
       z-index: 3;
     }
+}
+
+.footer{
+  background: #ff0069;
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  text-align: center;
+   padding: 10px 0px;
+  z-index: 10;
+}
+.footer a.cl-app{
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-size: calc(8px + 1vw);
+  line-height: 1;
+  font-weight: 600;
+  color: #FFF;
+  display: block;
+  
+}
+.footer a.md-dk{
+  color: #FFF;
+  text-decoration: underline;
+   font-family: 'EuclidCircularAVN-Regular';
+}
+.page-step-2 .md-row img{
+  position: relative;
+  z-index: 2;
+}
+.page-step-2 .md-row .md-col-2 .effect-2{
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-2:hover .effect-2{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-1 .effect-1{
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-1:hover .effect-1{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-3 .effect-3{
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-3:hover .effect-3{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-4 .effect-4{
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-4:hover .effect-4{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row.active-1 .md-col-1 .effect-1{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-2 .effect-2{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-3 .effect-3{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-4 .effect-4{
+  opacity: 1;
+}
+.page-main .md-form.active .bg-img-1{
+  animation: bg-img-1 3s;
+}
+@keyframes bg-img-1{
+ 0% {
+    filter: brightness(100%); /* Độ sáng bình thường */
+  }
+  15% {
+    filter: brightness(150%); /* Sáng hơn */
+  }
+  30% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  45% {
+    filter: brightness(50%); /* Tối đi */
+  }
+  60% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+}
+
+
+.page-step-2 .md-row.active-2 .md-col-2 .effect-2{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-1 .effect-1{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-3 .md-col-3 .effect-3{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-4 .md-col-4 .effect-4{
+  opacity: 1;
 }

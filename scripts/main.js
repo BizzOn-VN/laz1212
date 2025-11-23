@@ -50,8 +50,10 @@ document.querySelectorAll(".cursor-box").forEach(box => {
   box.addEventListener("mouseleave", e => {
     cursorEl.style.display = "none";
   });
+  
 
 });
+
 
 const parent = document.getElementById("pr-cursor-box");
 const children = document.querySelectorAll(".cursor-box");
@@ -70,6 +72,7 @@ children.forEach(child => {
     parent.classList.add(activeName);
   });
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Lấy tất cả các ô input OTP
@@ -132,21 +135,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ⭐️ KHU VỰC CẦN CỐ ĐỊNH: Danh sách mã hợp lệ (Hardcoded cho mục đích Demo/Test)
-    const VALID_CODES = ["1212STCN", "11122000"]; 
-    const CODE_LENGTH = VALID_CODES[0].length; 
+    const VALID_CODES = ["1212STCN", "11122000"];
+    const CODE_LENGTH = VALID_CODES[0].length;
     const NEXT_PAGE_URL = "./step-2.html";
     // -------------------------------------------------------------------------
-    
+
     const otpContainer = document.querySelector('.md-form');
     const inputs = document.querySelectorAll('.code-input');
     const submitButton = document.querySelector('.md-text-2');
     const targetElement = document.querySelector('.page-main');
+    
+    // Lấy phần tử âm thanh lỗi và âm thanh thành công
+    const errorSound = document.getElementById('errorSound'); 
+    const successSound = document.getElementById('successSound'); // THÊM
 
     // Hàm Thu thập Mã từ các ô input
     const getEnteredCode = () => {
-        return Array.from(inputs).map(input => input.value).join('').toUpperCase(); 
+        return Array.from(inputs).map(input => input.value).join('').toUpperCase();
+    };
+    
+    // Hàm Phát Âm thanh Lỗi
+    const playErrorSound = () => {
+        if (errorSound) {
+            errorSound.currentTime = 0; 
+            errorSound.play().catch(error => {
+                console.warn("Không thể phát âm thanh lỗi: ", error);
+            });
+        }
+    };
+    
+    // THÊM: Hàm Phát Âm thanh Thành công
+    const playSuccessSound = () => {
+        if (successSound) {
+            successSound.currentTime = 0; 
+            successSound.play().catch(error => {
+                console.warn("Không thể phát âm thanh thành công: ", error);
+            });
+        }
     };
 
     // Hàm Xóa Lỗi và thông báo
@@ -157,34 +184,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hàm Thêm Lỗi, xóa mã và focus lại
     const addErrorClass = () => {
         otpContainer.classList.add('active');
-        inputs.forEach(input => input.value = ''); 
-        inputs[0].focus(); 
+        inputs.forEach(input => input.value = '');
+        inputs[0].focus();
+        playErrorSound(); 
     };
-    
-    // --- Hàm Logic Xác nhận ---
+
+    // --- Hàm Logic Xác nhận (ĐÃ CẬP NHẬT) ---
     const handleSubmission = (event) => {
         event.preventDefault(); // Ngăn form gửi đi
-        
+
         const enteredCode = getEnteredCode();
 
         // 1. Kiểm tra độ dài mã
-        if (enteredCode.length !== CODE_LENGTH) { 
-            addErrorClass(); 
+        if (enteredCode.length !== CODE_LENGTH) {
+            addErrorClass();
             return;
         }
 
         // 2. So sánh mã
         if (VALID_CODES.includes(enteredCode)) {
+            // MÃ ĐÚNG:
             removeErrorClass();
             
-            // ⭐️ HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
-            if (targetElement) {
-                 targetElement.classList.add('page-exit'); 
-            }
+            // ⭐️ HÀNH ĐỘNG 2: PHÁT ÂM THANH THÀNH CÔNG
+            playSuccessSound(); 
             
-            // Chờ hiệu ứng chạy xong rồi chuyển hướng
+            // HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
+            if (targetElement) {
+                targetElement.classList.add('page-exit');
+            }
+
+            // Chờ hiệu ứng chạy xong rồi chuyển hướng (0.5 giây)
             setTimeout(() => {
-                window.location.replace(NEXT_PAGE_URL); 
+                window.location.replace(NEXT_PAGE_URL);
             }, 500);
 
         } else {
@@ -192,18 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
             addErrorClass();
         }
     };
-    
-    // --- Logic Tương tác Input (Tự động nhảy ô, Backspace) ---
+
+    // --- Logic Tương tác Input (Giữ nguyên) ---
     inputs.forEach((input, index) => {
-        
         // Tự động chuyển tiếp khi nhập xong 1 ký tự
         input.addEventListener('input', () => {
-            removeErrorClass(); // Xóa lỗi ngay khi người dùng bắt đầu nhập lại
+            removeErrorClass(); 
             if (input.value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
         });
-        
+
         // Tự động quay lại khi nhấn Backspace
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
@@ -218,21 +249,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function scrollToDiv(elementId) {
-    setTimeout(() => {
-        const targetDiv = document.getElementById(elementId);
-        
-        // Kiểm tra xem phần tử có tồn tại không
-        if (targetDiv) {
 
-            // Thực hiện cuộn trang mượt mà
-            targetDiv.scrollIntoView({
-                behavior: 'smooth', // Cuộn mượt mà
-                block: 'start'      // Đặt phần tử ở đầu viewport
-            });
-        } else {
-            console.error(`Không tìm thấy phần tử với ID: ${elementId}`);
-        }
-        
-    }, 4500);
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.page-step-2 .md-row'); // Lấy container cha
+  const allCols = document.querySelectorAll('.page-step-2 .md-col');
+  
+  allCols.forEach(hoveredCol => {
+    // Lấy tên class định danh của cột đang được hover (ví dụ: 'col-A')
+    // và chuyển thành tên class điều khiển (ví dụ: 'hovering-on-A')
+    const colName = Array.from(hoveredCol.classList).find(c => c.startsWith('md-col-'));
+    const controlClass = colName ? colName.replace('md-col-', 'hovering-on-') : '';
+
+    // --- Xử lý khi chuột đi vào (mouseenter) ---
+    hoveredCol.addEventListener('mouseenter', function() {
+      if (controlClass) {
+        // Thêm class điều khiển vào container cha
+        container.classList.add(controlClass); 
+      }
+    });
+
+    // --- Xử lý khi chuột đi ra (mouseleave) ---
+    hoveredCol.addEventListener('mouseleave', function() {
+      if (controlClass) {
+        // Xóa class điều khiển khỏi container cha
+        container.classList.remove(controlClass); 
+      }
+    });
+  });
+});
+
+
+new WOW().init();
