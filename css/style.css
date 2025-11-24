@@ -853,16 +853,16 @@ img{
   width: 30%;
 }
 .page-main .md-form.active .ico-img-1{
-  animation: bg-img-1 2s;
+  animation: bg-img-1 4s;
 }
 .page-main .md-form.active .ico-img-2{
-  animation: bg-img-1 2s;
+  animation: bg-img-1 4s;
 }
 .page-main .md-form.active-1 .ico-img-1{
-  animation: bg-img-1 2s;
+  animation: bg-img-1 4s;
 }
 .page-main .md-form.active-1 .ico-img-2{
-  animation: bg-img-1 2s;
+  animation: bg-img-1 4s;
 }
 @keyframes bg-img-1{
  0% {
@@ -874,16 +874,16 @@ img{
   30% {
     filter: brightness(100%); /* Quay về bình thường */
   }
-  40% {
+  45% {
     filter: brightness(120%); /* Tối đi */
-  }
-  50% {
-    filter: brightness(100%); /* Quay về bình thường */
   }
   60% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  75% {
     filter: brightness(120%); /* Tối đi */
   }
-  70% {
+  90% {
     filter: brightness(100%); /* Quay về bình thường */
   }
 }
