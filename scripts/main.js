@@ -188,6 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
         inputs[0].focus();
         playErrorSound(); 
     };
+    const addRightClass = () => {
+        otpContainer.classList.add('active-1');
+        playErrorSound(); 
+    };
 
     // --- Hàm Logic Xác nhận (ĐÃ CẬP NHẬT) ---
     const handleSubmission = (event) => {
@@ -205,19 +209,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (VALID_CODES.includes(enteredCode)) {
             // MÃ ĐÚNG:
             removeErrorClass();
+            addRightClass();
             
             // ⭐️ HÀNH ĐỘNG 2: PHÁT ÂM THANH THÀNH CÔNG
             playSuccessSound(); 
             
             // HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
             if (targetElement) {
+              setTimeout(() => {
                 targetElement.classList.add('page-exit');
+            }, 2000);
+                
             }
 
             // Chờ hiệu ứng chạy xong rồi chuyển hướng (0.5 giây)
             setTimeout(() => {
                 window.location.replace(NEXT_PAGE_URL);
-            }, 500);
+            }, 2500);
 
         } else {
             // MÃ SAI

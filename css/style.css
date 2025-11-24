@@ -136,7 +136,7 @@ img{
 .page-main .md-form{
   position: absolute;
   left: 10%;
-  top: 44%;
+  top: 45%;
   width: 80%;
 }
 .page-main .md-form .img-1{
@@ -486,7 +486,40 @@ img{
 
 
 .page-main .md-form.active input{
-  border: red 1px solid;
+  border: red 3px solid;
+  animation: shake-horizontal 1.5s;
+}
+@keyframes shake-horizontal {
+  /* Tại 0% (bắt đầu), không xoay */
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    /* Tại 20%, xoay nhẹ sang trái */
+    10% {
+        transform: rotate(-3deg);
+    }
+    /* Tại 40%, xoay sang phải */
+    20% {
+        transform: rotate(3deg);
+    }
+    /* Tại 60%, xoay nhẹ sang trái */
+    30% {
+        transform: rotate(-1deg);
+    }
+    /* Tại 80%, xoay nhẹ sang phải */
+    40% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(-2deg);
+    }
+    /* Tại 40%, xoay sang phải */
+    60% {
+        transform: rotate(2deg);
+    }
+    70%{
+      transform: rotate(0deg);
+    }
 }
 .page-main {
     opacity: 1;
@@ -726,6 +759,7 @@ img{
   color: #FFF;
   text-decoration: underline;
    font-family: 'EuclidCircularAVN-Regular';
+   font-size: calc(4px + 0.8vw);
 }
 .page-step-2 .md-row img{
   position: relative;
@@ -799,23 +833,57 @@ img{
 .page-step-2 .md-row.active-1 .md-col-4 .effect-4{
   opacity: 1;
 }
-.page-main .md-form.active .bg-img-1{
-  animation: bg-img-1 3s;
+.page-main .md-form .bg-img-1{
+  width: 70%;
+  display: table;
+  margin: 0 auto;
+}
+.page-main .md-form .ico-img-1{
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+}
+.page-main .md-form .ico-img-2{
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+}
+.page-main .md-form.active .ico-img-1{
+  animation: bg-img-1 2s;
+}
+.page-main .md-form.active .ico-img-2{
+  animation: bg-img-1 2s;
+}
+.page-main .md-form.active-1 .ico-img-1{
+  animation: bg-img-1 2s;
+}
+.page-main .md-form.active-1 .ico-img-2{
+  animation: bg-img-1 2s;
 }
 @keyframes bg-img-1{
  0% {
     filter: brightness(100%); /* Độ sáng bình thường */
   }
   15% {
-    filter: brightness(150%); /* Sáng hơn */
+    filter: brightness(120%); /* Sáng hơn */
   }
   30% {
     filter: brightness(100%); /* Quay về bình thường */
   }
-  45% {
-    filter: brightness(50%); /* Tối đi */
+  40% {
+    filter: brightness(120%); /* Tối đi */
+  }
+  50% {
+    filter: brightness(100%); /* Quay về bình thường */
   }
   60% {
+    filter: brightness(120%); /* Tối đi */
+  }
+  70% {
     filter: brightness(100%); /* Quay về bình thường */
   }
 }
@@ -832,4 +900,20 @@ img{
 }
 .page-step-2 .md-row.active-4 .md-col-4 .effect-4{
   opacity: 1;
+}
+.page-step-2 .md-row{
+  opacity: 0;
+  animation: md-row 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes md-row{
+  0%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
