@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault(); 
                 
                 // Lấy dữ liệu dán và loại bỏ các ký tự không phải số
-                const pasteData = event.clipboardData.getData('text').trim().replace(/\D/g, ''); 
+                const pasteData = event.clipboardData.getData('text').trim(); 
                 
                 // Điền dữ liệu vào các ô
                 for (let i = 0; i < pasteData.length && i < inputs.length; i++) {

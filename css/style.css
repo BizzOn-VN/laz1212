@@ -157,6 +157,7 @@ img{
       justify-content: center;
 }
 .page-main .md-form input{
+  text-transform: uppercase;
   width: 12.5%;
   padding: 4% 0px;
   border-radius: 5px;
@@ -421,7 +422,7 @@ img{
   }
 }
 .page-step-2 .md-row.active-1 .md-col-1{
-  animation: movein-1 1.5s;
+  animation: movein-1 4s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-1{
@@ -429,13 +430,25 @@ img{
     left: 29.5%;
     transform: scale(1.0);
   }
+  30%{
+    left: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  70%{
+    left: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
   100%{
     left: 40%;
     transform: scale(1.3);
+    opacity: 0;
+    display: none;
   }
 }
 .page-step-2 .md-row.active-2 .md-col-2{
-  animation: movein-2 1.5s;
+  animation: movein-2 4s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-2{
@@ -443,15 +456,29 @@ img{
     left: 42.5%;
     transform: scale(1.0);
   }
+  30%{
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
+    opacity: 1;
+  }
+   70%{
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
+    opacity: 1;
+  }
   100%{
     left: 42.5%;
     transform: scale(1.3);
     top: 37%;
+    opacity: 0;
+    display: none;
   }
 }
 
 .page-step-2 .md-row.active-3 .md-col-3{
-  animation: movein-3 1.5s;
+  animation: movein-3 4s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-3{
@@ -459,13 +486,25 @@ img{
     right: 30.7%;
     transform: scale(1.0);
   }
+  30%{
+    right: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  70%{
+    right: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
   100%{
     right: 40%;
     transform: scale(1.3);
+    opacity: 0;
+    display: none;
   }
 }
 .page-step-2 .md-row.active-4 .md-col-4{
-  animation: movein-4 1.5s;
+  animation: movein-4 4s;
   animation-fill-mode: forwards;
 }
 @keyframes movein-4{
@@ -473,10 +512,24 @@ img{
     right: 40%;
     transform: scale(1.0);
   }
+  30%{
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
+    opacity: 1;
+  }
+  70%{
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
+    opacity: 1;
+  }
   100%{
     right: 40%;
     transform: scale(1.3);
     top: 32%;
+    opacity: 0;
+    display: none;
   }
 }
 
@@ -558,11 +611,12 @@ img{
     opacity: 0;
 }
 .img-ico-5{
-  position: absolute;
-      left: 52%;
-    top: 26%;
-    width: 21%;
+  position: absolute !important;
+      left: 50%;
+    top: 35%;
+    width: 10%;
     opacity: 0;
+    z-index: 10;
 }
 
 .page-step-2 .md-row.active-1 .img-ico-3{
@@ -718,7 +772,7 @@ img{
 @keyframes img-ico-5{
   0%{
     opacity: 0;
-    z-index: 3;
+    z-index: 10;
   }
   50%{
     opacity: 0;
@@ -728,10 +782,10 @@ img{
   65%  { transform: rotate(-8deg) translateX(-2px); }
   70%  { transform: rotate(6deg) translateX(2px); }
   75% { transform: rotate(-12deg) translateX(-3px); opacity: 1;
-    z-index: 3;}
+    z-index: 10;}
     100%{
       opacity: 0;
-      z-index: 3;
+      z-index: 10;
     }
 }
 
@@ -852,11 +906,11 @@ img{
   transform: translateY(-50%);
   width: 30%;
 }
-.page-main .md-form.active .ico-img-1{
-  animation: bg-img-1 4s;
+.page-main .md-form .ico-img-1{
+  animation: bg-img-1 4s infinite;
 }
-.page-main .md-form.active .ico-img-2{
-  animation: bg-img-1 4s;
+.page-main .md-form .ico-img-2{
+  animation: bg-img-1 4s infinite;
 }
 .page-main .md-form.active-1 .ico-img-1{
   animation: bg-img-1 4s;
@@ -916,4 +970,126 @@ img{
   100%{
     opacity: 1;
   }
+}
+
+.btn-cf{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  width: 24%;
+  display: none;
+}
+.md-product{
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
+  display: none;
+}
+
+.page-step-2 .md-row.active-1 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-2 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-3 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-4 .md-product{
+  animation: md-product 2.5s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+@keyframes md-product{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.page-step-2 .md-row.active-1 .btn-cf{
+  display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-2 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-3 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-4 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+@keyframes btn-cf{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.md-product .product-1{
+  position: absolute;
+  left: 17%;
+  top: 40%;
+  width: 18%;
+  z-index: 9;
+}
+.md-product .product-1 img{
+  margin-bottom: 10px;
+}
+.md-product .product-1 p{
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: calc(4px + 1vw);
+  font-weight: 600;
+  color: #000;
+  line-height: 1;
+}
+.md-product .product-1 p.giacu{
+  text-decoration: line-through;
+  color: #FFF;
+  font-size: calc(3px + 0.8vw);
+}
+.md-product .product-2{
+  left: 41%;
+}
+.md-product .product-3{
+  left: 64.5%;
 }
