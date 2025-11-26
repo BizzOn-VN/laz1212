@@ -823,12 +823,12 @@ img{
 }
 .page-step-2 .md-row .md-col-2 .effect-2{
   position: absolute;
-  left: 50%;
-  top: -15%;
+  left: 57%;
+  top: -16%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
-  width: 100%;
+  width: 95%;
 }
 .page-step-2 .md-row .md-col-2:hover .effect-2{
   opacity: 1;
@@ -837,12 +837,12 @@ img{
 
 .page-step-2 .md-row .md-col-1 .effect-1{
   position: absolute;
-  left: 50%;
+  left: 49%;
   top: -15%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
-  width: 100%;
+  width: 80%;
 }
 .page-step-2 .md-row .md-col-1:hover .effect-1{
   opacity: 1;
@@ -851,12 +851,12 @@ img{
 
 .page-step-2 .md-row .md-col-3 .effect-3{
   position: absolute;
-  left: 50%;
-  top: -10%;
+  left: 57%;
+  top: -13%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
-  width: 100%;
+  width: 80%;
 }
 .page-step-2 .md-row .md-col-3:hover .effect-3{
   opacity: 1;
@@ -865,12 +865,12 @@ img{
 
 .page-step-2 .md-row .md-col-4 .effect-4{
   position: absolute;
-  left: 50%;
-  top: 0%;
+  left: 45%;
+  top: -0.5%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
-  width: 100%;
+  width: 110%;
 }
 .page-step-2 .md-row .md-col-4:hover .effect-4{
   opacity: 1;
