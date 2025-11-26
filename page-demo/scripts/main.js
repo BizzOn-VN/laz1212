@@ -81,9 +81,7 @@ document.querySelectorAll(".cursor-box").forEach(box => {
         cursorEl.style.transform = transformValue;
 
         // Áp dụng cho con trỏ đi kèm (nếu có)
-        if (trailingCursor) {
-            trailingCursor.style.transform = transformValue;
-        }
+        
     });
 
     box.addEventListener("mouseleave", e => {
@@ -332,8 +330,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 new WOW().init();
 
-const cursor = document.querySelector('.cursorimgactive');
+const cursor = document.querySelector('.md-cursor');
+const cursor_trail = document.querySelector('.trailing-cursor-style');
 
 document.addEventListener('click', () => {
   cursor.classList.add('active');
+  cursor_trail.classList.add('active');
 });

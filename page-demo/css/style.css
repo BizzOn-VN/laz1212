@@ -375,7 +375,7 @@ img{
 }
 
 .custom-cursor img {
-  width: 60%;          /* giữ nguyên kích thước ảnh */
+  width: 100%;          /* giữ nguyên kích thước ảnh */
   height: auto;         /* giữ nguyên kích thước ảnh */
   pointer-events: none;
 }
@@ -1160,16 +1160,22 @@ img{
 }
 .page-demo .custom-cursor{
   position: absolute !important;
-  width: 50%;
+  width: 35%;
   height: auto;
+
+}
+.page-demo .md-cursor.active{
+  animation: cursor-trail 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 .page-demo .trailing-cursor-style{
   position: absolute !important;
   z-index: 99999 !important;
-  top: 27%;
-    left: 7%;
-    width: 25%;
-    transform: translate(0,0) !important;
+  top: 30%;
+    left: 13%;
+    width: 38%;
+/*    transform: translate(0,0) !important;*/
 }
 
 /*.page-demo #cursorImg{
@@ -1189,5 +1195,26 @@ img{
     }
 }
 .cursorimgactive.active{
-  animation: cursor-img 1.5s;
+  /*animation: cursor-img 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;*/
+}
+
+.trailing-cursor-style.active{
+  /*animation: cursor-trail 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;*/
+}
+@keyframes cursor-trail{
+  0%{
+    opacity: 1;
+  }
+  20%   { transform: rotate(-12deg) translateX(-3px); opacity:1; }
+  30%  { transform: rotate(4deg) translateX(1px); }
+  40%  { transform: rotate(-8deg) translateX(-2px); }
+  50%  { transform: rotate(6deg) translateX(2px); }
+  60% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+    100%{
+      opacity: 1;
+    }
 }

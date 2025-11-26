@@ -353,7 +353,7 @@ img{
 }
 
 .custom-cursor {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   pointer-events: none;
@@ -361,10 +361,12 @@ img{
   transform: translate(-50%, -50%);
   display: none;
   z-index: 99999;
+  width: 10%;
+  height: auto;
 }
 
 .custom-cursor img {
-  width: 60%;          /* giữ nguyên kích thước ảnh */
+  width: 100%;          /* giữ nguyên kích thước ảnh */
   height: auto;         /* giữ nguyên kích thước ảnh */
   pointer-events: none;
 }
