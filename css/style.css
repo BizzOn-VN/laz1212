@@ -1146,7 +1146,11 @@ img{
 }
 
 
-
+.page-demo{
+  height: 100vh;
+   background: url(../images/bg-effect-mouse-2.png) no-repeat;
+  background-size: 100% auto;
+}
 .page-demo .md-row .md-col-2{
   width: 100%;
   height: 100%;
@@ -1156,15 +1160,15 @@ img{
   display: block;
 }
 .page-demo .custom-cursor{
-  background: url(../images/bg-effect-mouse-2.png) no-repeat;
+  /*background: url(../images/bg-effect-mouse-2.png) no-repeat;
   background-size: 100% auto;
   padding: 5% 0px 5% 5%;
-  background-position: center;
+  background-position: center;*/
 }
 .page-demo .trailing-cursor-style{
   z-index: 99999 !important;
-  top: 2%;
-  left: -3%;
-  width: 5%;
+  top: 3%;
+    left: -12%;
+    width: 11%;
 }
 
