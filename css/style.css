@@ -221,7 +221,7 @@ img{
 }
 .page-step-2 .md-row .md-col-4:hover{
   transform: scale(1.4);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   animation: md-col-4 1s;
   animation-fill-mode: forwards;
   z-index: 3;
@@ -238,39 +238,32 @@ img{
   animation: md-col-1 1s;
   animation-fill-mode: forwards;
   z-index: 2;
-  transition-duration: 1s;
 }
 @keyframes md-col-1{
   0%{
     left: 29.5%;
-    z-index: 2;
   }
   100%{
     left: 24.5%;
-    z-index: 2;
   }
 }
 .page-step-2 .md-row.hovering-on-4 .md-col-2{
   animation: md-col-2 1s;
   animation-fill-mode: forwards;
   z-index: 1;
-  transition-duration: 1s;
 }
 @keyframes md-col-2{
   0%{
     left: 42.5%;
-    z-index: 1;
   }
   100%{
     left: 32%;
-    z-index: 1;
   }
 }
 .page-step-2 .md-row.hovering-on-4 .md-col-3{
   animation: md-col-3 1s;
   animation-fill-mode: forwards;
   z-index: 2;
-  transition-duration: 1s;
 }
 @keyframes md-col-3{
   0%{
@@ -282,12 +275,11 @@ img{
 }
 .page-step-2 .md-row .md-col-2:hover{
   transform: scale(1.4);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 .page-step-2 .md-row.hovering-on-2 .md-col-1{
   animation: md-col-1-2 1s;
   animation-fill-mode: forwards;
-  transition-duration: 1s;
 }
 @keyframes md-col-1-2{
   0%{
@@ -302,7 +294,6 @@ img{
 .page-step-2 .md-row.hovering-on-2 .md-col-3{
   animation: md-col-3-2 1s;
   animation-fill-mode: forwards;
-  transition-duration: 1s;
 }
 @keyframes md-col-3-2{
   0%{
@@ -317,7 +308,6 @@ img{
 .page-step-2 .md-row.hovering-on-2 .md-col-4{
   animation: md-col-4-2 1s;
   animation-fill-mode: forwards;
-  transition-duration: 1s;
 }
 @keyframes md-col-4-2{
   0%{
@@ -329,11 +319,11 @@ img{
 }
 .page-step-2 .md-row .md-col-1:hover{
    transform: scale(1.4);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 .page-step-2 .md-row .md-col-3:hover{
    transform: scale(1.4);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 .page-step-2 .md-row .md-col-2{
   position: absolute;
@@ -371,7 +361,6 @@ img{
   transform: translate(-50%, -50%);
   display: none;
   z-index: 99999;
- 
 }
 
 .custom-cursor img {
@@ -1104,71 +1093,3 @@ img{
 .md-product .product-3{
   left: 64.5%;
 }
-
-/* Ví dụ CSS cho hình ảnh đi kèm (Trailing Image) */
-.trailing-cursor-style {
-    position: fixed !important;
-    top: 5%;
-    left: -10%;
-    pointer-events: none;
-    z-index: 9998 !important; /* Đặt sau con trỏ chính */
-    width: 8%; /* Kích thước */
-    height: auto;
-    /* Căn giữa hình ảnh (nếu con trỏ chính cũng dùng) */
-    
-    /* QUAN TRỌNG: Transition dài hơn để tạo độ trễ (delay/trail) */
-    animation: pulse 2s infinite;
-    
-}
-
-@keyframes pulse {
-   0% {
-    filter: brightness(100%); /* Độ sáng bình thường */
-  }
-  15% {
-    filter: brightness(150%); /* Sáng hơn */
-  }
-  30% {
-    filter: brightness(100%); /* Quay về bình thường */
-  }
-  45% {
-    filter: brightness(150%); /* Tối đi */
-  }
-  60% {
-    filter: brightness(100%); /* Quay về bình thường */
-  }
-  75% {
-    filter: brightness(150%); /* Tối đi */
-  }
-  90% {
-    filter: brightness(100%); /* Quay về bình thường */
-  }
-}
-
-
-.page-demo{
-  height: 100vh;
-   background: url(../images/bg-effect-mouse-2.png) no-repeat;
-  background-size: 100% auto;
-}
-.page-demo .md-row .md-col-2{
-  width: 100%;
-  height: 100%;
-  left: 0%;
-  top: 0%;
-  position: fixed;
-  display: block;
-}
-.page-demo .custom-cursor{
-  /*background: url(../images/bg-effect-mouse-2.png) no-repeat;
-  background-size: 100% auto;
-  padding: 5% 0px 5% 5%;
-  background-position: center;*/
-}
-.page-demo .trailing-cursor-style{
-  z-index: 99999 !important;
-  top: 3%;
-    left: -12%;
-    width: 11%;
-}
-
