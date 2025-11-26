@@ -1152,6 +1152,8 @@ img{
   height: 100%;
   left: 0%;
   top: 0%;
+  position: fixed;
+  display: block;
 }
 .page-demo .custom-cursor{
   background: url(../images/bg-effect-mouse-2.png) no-repeat;

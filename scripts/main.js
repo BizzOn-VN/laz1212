@@ -97,23 +97,23 @@ document.querySelectorAll(".cursor-box").forEach(box => {
 
 
 
-const parent = document.getElementById("pr-cursor-box");
-const children = document.querySelectorAll(".cursor-box");
+// const parent = document.getElementById("pr-cursor-box");
+// const children = document.querySelectorAll(".cursor-box");
 
-// khi click div con
-children.forEach(child => {
-  child.addEventListener("click", () => {
+// // khi click div con
+// children.forEach(child => {
+//   child.addEventListener("click", () => {
 
-    // Xoá toàn bộ class active cũ của CHA
-    parent.classList.remove("active-1", "active-2", "active-3", "active-4");
+//     // Xoá toàn bộ class active cũ của CHA
+//     parent.classList.remove("active-1", "active-2", "active-3", "active-4");
 
-    // Lấy tên class active từ data-active của con
-    const activeName = child.getAttribute("data-active");
+//     // Lấy tên class active từ data-active của con
+//     const activeName = child.getAttribute("data-active");
 
-    // Gán class cho THẰNG CHA
-    parent.classList.add(activeName);
-  });
-});
+//     // Gán class cho THẰNG CHA
+//     parent.classList.add(activeName);
+//   });
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
