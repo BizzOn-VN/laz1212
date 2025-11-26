@@ -1148,8 +1148,7 @@ img{
 
 .page-demo{
   height: 100vh;
-   background: url(../images/bg-effect-mouse-2.png) no-repeat;
-  background-size: 100% auto;
+  background-color: rgba(1,0,0,0.90);
 }
 .page-demo .md-row .md-col-2{
   width: 100%;
@@ -1167,8 +1166,8 @@ img{
 .page-demo .trailing-cursor-style{
   position: absolute !important;
   z-index: 99999 !important;
-  top: 38%;
-    left: 0%;
+  top: 27%;
+    left: 7%;
     width: 25%;
     transform: translate(0,0) !important;
 }
