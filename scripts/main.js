@@ -22,37 +22,79 @@ jQuery(document).on("ready",function () {
 	
 });
 
+// JavaScript
+const cursorEl = document.getElementById("customCursor"); // Phần tử DIV bao ngoài
+const cursorImg = document.getElementById("cursorImg");     // Ảnh chính bên trong DIV
+const trailingCursor = document.getElementById("trailingCursor"); // Ảnh đi kèm
 
-const cursorEl = document.getElementById("customCursor");
-const cursorImg = document.getElementById("cursorImg");
-
-// 4 ảnh con trỏ
+// 4 ảnh con trỏ và 4 ảnh đi kèm tương ứng
 const cursorImages = {
-  cursor1: "./images/msp-1.png",
-  cursor2: "./images/msp-2.png",
-  cursor3: "./images/msp-3.png",
-  cursor4: "./images/msp-4.png"
+    cursor1: {
+        main: "./images/msp-1.png",
+        trailing: "./images/effect-mouse-1.png" // Đường dẫn ảnh đi kèm 1
+    },
+    cursor2: {
+        main: "./images/msp-2.png",
+        trailing: "./images/effect-mouse-2.png" // Đường dẫn ảnh đi kèm 2
+    },
+    cursor3: {
+        main: "./images/msp-3.png",
+        trailing: "./images/effect-mouse-3.png" // Đường dẫn ảnh đi kèm 3
+    },
+    cursor4: {
+        main: "./images/msp-4.png",
+        trailing: "./images/effect-mouse-4.png" // Đường dẫn ảnh đi kèm 4
+    }
 };
 
 document.querySelectorAll(".cursor-box").forEach(box => {
+    box.addEventListener("mouseenter", e => {
+        let key = box.dataset.cursor; // Lấy key (ví dụ: 'cursor1')
 
-  box.addEventListener("mouseenter", e => {
-    let key = box.dataset.cursor;  
-    cursorImg.src = cursorImages[key];
-    cursorEl.style.display = "block";
-  });
+        // Đảm bảo key tồn tại trong cursorImages
+        if (cursorImages[key]) {
+            // CẬP NHẬT HÌNH ẢNH CON TRỎ CHÍNH
+            cursorImg.src = cursorImages[key].main;
+            
+            // CẬP NHẬT HÌNH ẢNH ĐI KÈM
+            if (trailingCursor) {
+                trailingCursor.src = cursorImages[key].trailing;
+            }
+        }
+        
+        // HIỂN THỊ CẢ CON TRỎ CHÍNH VÀ CON TRỎ ĐI KÈM
+        cursorEl.style.display = "block";
+        if (trailingCursor) {
+             trailingCursor.style.display = "block";
+        }
+    });
 
-  box.addEventListener("mousemove", e => {
-    cursorEl.style.transform =
-      `translate(${e.clientX}px, ${e.clientY}px) translate(0%, 0%)`;
-  });
+    box.addEventListener("mousemove", e => {
+        const x = e.clientX;
+        const y = e.clientY;
 
-  box.addEventListener("mouseleave", e => {
-    cursorEl.style.display = "none";
-  });
-  
+        // Giá trị transform để dịch chuyển và căn giữa
+        const transformValue = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
 
+        // Áp dụng cho con trỏ chính
+        cursorEl.style.transform = transformValue;
+
+        // Áp dụng cho con trỏ đi kèm (nếu có)
+        if (trailingCursor) {
+            trailingCursor.style.transform = transformValue;
+        }
+    });
+
+    box.addEventListener("mouseleave", e => {
+        // ẨN CẢ CON TRỎ CHÍNH VÀ CON TRỎ ĐI KÈM
+        cursorEl.style.display = "none";
+        if (trailingCursor) {
+             trailingCursor.style.display = "none";
+        }
+    });
 });
+
+
 
 
 const parent = document.getElementById("pr-cursor-box");
@@ -288,3 +330,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 new WOW().init();
+
