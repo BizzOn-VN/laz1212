@@ -445,8 +445,7 @@ img{
   100%{
     left: 40%;
     transform: scale(1.3);
-    opacity: 0;
-    display: none;
+    opacity: 1;
   }
 }
 .page-step-2 .md-row.active-2 .md-col-2{
@@ -474,8 +473,7 @@ img{
     left: 42.5%;
     transform: scale(1.3);
     top: 37%;
-    opacity: 0;
-    display: none;
+    opacity: 1;
   }
 }
 
@@ -501,8 +499,7 @@ img{
   100%{
     right: 40%;
     transform: scale(1.3);
-    opacity: 0;
-    display: none;
+    opacity: 1;
   }
 }
 .page-step-2 .md-row.active-4 .md-col-4{
@@ -530,8 +527,7 @@ img{
     right: 40%;
     transform: scale(1.3);
     top: 32%;
-    opacity: 0;
-    display: none;
+    opacity: 1;
   }
 }
 
@@ -982,6 +978,7 @@ img{
   width: 24%;
   display: none;
 }
+
 .md-product{
   width: 60%;
   position: absolute;
@@ -989,9 +986,10 @@ img{
   transform: translateX(-50%);
   top: 40%;
   display: none;
+  opacity: 0;
 }
 
-.page-step-2 .md-row.active-1 .md-product{
+/*.page-step-2 .md-row.active-1 .md-product{
   animation: md-product 2s;
   animation-fill-mode: forwards;
   display: block;
@@ -1063,7 +1061,7 @@ img{
   100%{
     opacity: 1;
   }
-}
+}*/
 
 
 .md-product .product-1{
@@ -1094,4 +1092,81 @@ img{
 }
 .md-product .product-3{
   left: 64.5%;
+}
+
+.active-child{
+  display: block;
+}
+.active-btncf{
+  display: block;
+  animation: btn-cf 2.5s;
+   animation-delay: 2.5s;
+   animation-fill-mode: forwards;
+   opacity: 0;
+}
+@keyframes btn-cf{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.active-product{
+  display: block;
+   animation: md-product 2.5s;
+   animation-delay: 3s;
+   animation-fill-mode: forwards;
+}
+@keyframes md-product{
+  0%{
+    opacity: 0;
+    display: block;
+  }
+  100%{
+    opacity: 1;
+    display: block;
+  }
+}
+
+.md-cursor.active{
+  animation: cursor-trail 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes cursor-trail{
+  0%{
+    opacity: 1;
+  }
+  20%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
+  30%  { transform: rotate(8deg) translateX(2px); }
+  40%  { transform: rotate(-12deg) translateX(-3px); }
+  50%  { transform: rotate(6deg) translateX(2px); }
+  60% { transform: rotate(-16deg) translateX(-4px); opacity: 1;}
+  70%  { transform: rotate(6deg) translateX(2px); }
+  80% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+    100%{
+      opacity: 1;
+    }
+}
+.active-none{
+  cursor: auto;
+}
+.active-none img{
+  animation: active-none 2s ;
+  animation-fill-mode: forwards;
+}
+@keyframes active-none{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+.active-custom{
+  animation: active-none 2s ;
+  animation-fill-mode: forwards;
 }

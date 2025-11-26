@@ -58,20 +58,32 @@ document.querySelectorAll(".cursor-box").forEach(box => {
 const parent = document.getElementById("pr-cursor-box");
 const children = document.querySelectorAll(".cursor-box");
 
-// khi click div con
+
+// =======================================================
+// === 1. XỬ LÝ LỰA CHỌN (CLICK VÀO CURSOR-BOX) ===
+// =======================================================
+
 children.forEach(child => {
-  child.addEventListener("click", () => {
+    child.addEventListener("click", () => {
 
-    // Xoá toàn bộ class active cũ của CHA
-    parent.classList.remove("active-1", "active-2", "active-3", "active-4");
+        // --- Logic Xử lý Phần tử CHA ---
+        parent.classList.remove("active-1", "active-2", "active-3", "active-4");
+        const activeName = child.getAttribute("data-active");
+        parent.classList.add(activeName);
 
-    // Lấy tên class active từ data-active của con
-    const activeName = child.getAttribute("data-active");
-
-    // Gán class cho THẰNG CHA
-    parent.classList.add(activeName);
-  });
+        // --- Logic Xử lý Phần tử CON (THÊM class 'active' vào phần tử được chọn) ---
+        
+        // 1. Xoá class 'active' khỏi TẤT CẢ các div con khác
+    
+    });
 });
+
+// =======================================================
+// === 2. XỬ LÝ SỰ KIỆN CLICK LÊN CLASS 'active' ĐÃ ĐƯỢC THÊM VÀO ===
+// =======================================================
+
+// Sử dụng Event Delegation: Lắng nghe sự kiện click trên toàn bộ document.
+// Khi click xảy ra, kiểm tra xem click có trúng vào phần tử có class 'active' không.
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -288,3 +300,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 new WOW().init();
+
+$(document).ready(function() {
+    $('.md-col').on('click', function() {
+        const $clickedElement = $(this);
+        const $targetProduct = $('.md-product'); // Mục tiêu để thêm class
+        const cursor = document.querySelector('.md-cursor');
+        const btn_cf = document.querySelector('.btn-cf');
+        const customcursor = document.querySelector('.custom-cursor');
+
+        // 1. Kiểm tra xem đã có 'product' chưa (Tức là Click 3 trở đi)
+        if ($targetProduct.hasClass('product')) {
+            // TRƯỜNG HỢP 3: Đã có 'product' -> Thêm 'active-product'
+            
+            console.log('Click Lần 3: Đang thêm class "active-product"');
+            $targetProduct.addClass('active-product');
+
+            // Tùy chọn: Reset tất cả trạng thái nếu muốn bắt đầu lại chu trình
+            // $clickedElement.removeClass('active-child');
+            // $targetProduct.removeClass('product active-product'); 
+            
+        } 
+        
+        // 2. Kiểm tra xem đã có 'active-child' chưa (Tức là Click 2)
+        else if ($clickedElement.hasClass('active-child')) {
+            // TRƯỜNG HỢP 2: Đã có 'active-child' nhưng chưa có 'product' -> Thêm 'product'
+            
+            console.log('Click Lần 2: Đang thêm class "product"');
+            $targetProduct.addClass('active-product');
+            btn_cf.classList.add('active-btncf');
+            document.addEventListener('click', () => {
+              cursor.classList.add('active');
+              
+            });
+            
+            document.addEventListener('click', () => {
+              setTimeout(() => {
+                $clickedElement.addClass('active-none');
+            }, 1500);
+            });
+            document.addEventListener('click', () => {
+              setTimeout(() => {
+                customcursor.classList.add('active-custom');
+            }, 2000);
+            });
+
+
+        } 
+        
+        // 3. Nếu không có cả hai (Tức là Click 1)
+        else {
+            // TRƯỜNG HỢP 1: Chưa có gì -> Thêm 'active-child'
+            
+            console.log('Click Lần 1: Đang thêm class "active-child"');
+            $clickedElement.addClass('active-child');
+        }
+    });
+});
+
+
+// const cursor = document.querySelector('.md-cursor');
+
+// document.addEventListener('click', () => {
+//   cursor.classList.add('active');
+// });
