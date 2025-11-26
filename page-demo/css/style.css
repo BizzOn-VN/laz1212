@@ -1,0 +1,1175 @@
+/* layout general
+ -----------------------------------------------------*/
+/* general setting
+ -----------------------------------------------------*/
+* {
+  outline: transparent;
+}
+
+body {
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   font-size: calc(4px + 1vw);
+  font-family: "Red Rose", serif;
+  color: #FFF;
+  line-height: 1.5;
+  background: #FFF;
+}
+
+a {
+  color: #111111;
+  -webkit-transition-duration: 0.2s;
+       -o-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+a:hover {
+  text-decoration: none;
+  color: #00D373;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+  font-family: 'EuclidCircularAVN-Regular';
+  margin: 0px 0px 0.5rem 0px;
+}
+
+p {
+  margin-bottom: 22px;
+}
+p:last-child {
+  margin-bottom: 0px;
+}
+
+input[type=submit] {
+  border: none;
+  -webkit-transition-duration: 0.2s;
+       -o-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+@font-face {
+  font-family: 'EuclidCircularAVN-Regular';
+  src: url(../fonts/EuclidCircularAVN-Regular/EuclidCircularAVN-Regular.woff2) format("woff2"),
+   url(../fonts/EuclidCircularAVN-Regular/EuclidCircularAVN-Regular.eot) format("eot"),
+    url(../fonts/EuclidCircularAVN-Regular/EuclidCircularAVN-Regular.ttf) format("ttf"),
+     url(../fonts/EuclidCircularAVN-Regular/EuclidCircularAVN-Regular.woff) format("woff"); }
+@font-face {
+  font-family: 'EuclidCircularAVN-Bold';
+  src: url(../fonts/EuclidCircularAVN-Bold/EuclidCircularAVN-Bold.woff2) format("woff2"),
+   url(../fonts/EuclidCircularAVN-Bold/EuclidCircularAVN-Bold.eot) format("eot"),
+    url(../fonts/EuclidCircularAVN-Bold/EuclidCircularAVN-Bold.ttf) format("ttf"),
+     url(../fonts/EuclidCircularAVN-Bold/EuclidCircularAVN-Bold.woff) format("woff"); }
+@font-face {
+  font-family: 'EuclidCircularAVN-Light';
+  src: url(../fonts/EuclidCircularAVN-Light/EuclidCircularAVN-Light.woff2) format("woff2"),
+   url(../fonts/EuclidCircularAVN-Light/EuclidCircularAVN-Light.eot) format("eot"),
+    url(../fonts/EuclidCircularAVN-Light/EuclidCircularAVN-Light.ttf) format("ttf"),
+     url(../fonts/EuclidCircularAVN-Light/EuclidCircularAVN-Light.woff) format("woff"); }
+@font-face {
+  font-family: '1FTVDesignerRegular';
+  src: url(../fonts/1FTVDesignerRegular/1FTVDesignerRegular.woff2) format("woff2"),
+   url(../fonts/1FTVDesignerRegular/1FTVDesignerRegular.eot) format("eot"),
+    url(../fonts/1FTVDesignerRegular/1FTVDesignerRegular.ttf) format("ttf"),
+     url(../fonts/1FTVDesignerRegular/1FTVDesignerRegular.woff) format("woff"); }
+img{
+  width: 100%;
+}
+.font-1ftv{
+  font-family: '1FTVDesignerRegular';
+}
+.page-main{
+  position: relative;
+}
+.page-main .md-text-1{
+  position: absolute;
+  left: 28%;
+  top: 24%;
+  width: 44%;
+  animation: md-text-1 4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes md-text-1{
+  0%{
+    transform: scale(1.0);
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  35%{
+    transform: scale(1.2);
+  }
+  40%{
+    transform: scale(1.0);
+  }
+  45%{
+    transform: scale(1.2);
+  }
+  50%{
+    transform: scale(1.0);
+  }
+  55%{
+    transform: scale(1.2);
+  }
+  60%{
+    transform: scale(1.0);
+  }
+  100%{
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
+.page-main .md-form{
+  position: absolute;
+  left: 10%;
+  top: 45%;
+  width: 80%;
+}
+.page-main .md-form .img-1{
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.page-main .md-form form{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 45%;
+  display: flex;
+      gap: 10px;
+      justify-content: center;
+}
+.page-main .md-form input{
+  text-transform: uppercase;
+  width: 12.5%;
+  padding: 4% 0px;
+  border-radius: 5px;
+  border: none;
+  background: #f2cde2;
+  text-align: center;
+  vertical-align: bottom;
+  outline: none;
+  font-size: calc(20px + 3vw);
+  line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;   /* chữ xuống đáy input */
+      padding-bottom: 6px;
+      background-image: linear-gradient(#a11d6f, #a11d6f);
+          background-repeat: no-repeat;
+          background-size: 60% 1px;     /* độ dài gạch */
+          background-position: center bottom 10px; 
+}
+
+.page-main .md-text-2{
+  position: absolute;
+  left: 37.5%;
+  top: 73%;
+  width: 24%;
+}
+.page-main .md-text-2:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+.page-main .logo{
+  width: 18%;
+  position: absolute;
+  left: 41%;
+  top: 10%;
+}
+.page-main .md-text-3{
+  position: absolute;
+  left: 29.5%;
+  width: 41%;
+  top: 37.5%;
+  text-align: center;
+  font-weight: 600;
+}
+.page-step-2{
+  position: relative;
+}
+.page-step-2 .md-text-3{
+  position: absolute;
+  left: 23%;
+  top: 7.5%;
+    width: 54%;
+}
+
+.page-step-2 .md-row .md-col-1{
+  position: absolute;
+  left: 29.5%;
+    top: 38.5%;
+    width: 19.5%;
+  cursor: url("../images/msp-1.png"), auto;
+}
+.page-step-2 .md-row .md-col-4:hover{
+  transform: scale(1.4);
+  transition-duration: 1s;
+  animation: md-col-4 1s;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+@keyframes md-col-4{
+  0%{
+    top: 51%;
+  }
+  100%{
+    top: 44%;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-1{
+  animation: md-col-1 1s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+  transition-duration: 1s;
+}
+@keyframes md-col-1{
+  0%{
+    left: 29.5%;
+    z-index: 2;
+  }
+  100%{
+    left: 24.5%;
+    z-index: 2;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-2{
+  animation: md-col-2 1s;
+  animation-fill-mode: forwards;
+  z-index: 1;
+  transition-duration: 1s;
+}
+@keyframes md-col-2{
+  0%{
+    left: 42.5%;
+    z-index: 1;
+  }
+  100%{
+    left: 32%;
+    z-index: 1;
+  }
+}
+.page-step-2 .md-row.hovering-on-4 .md-col-3{
+  animation: md-col-3 1s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+  transition-duration: 1s;
+}
+@keyframes md-col-3{
+  0%{
+    right: 30.7%;
+  }
+  100%{
+    right: 27%;
+  }
+}
+.page-step-2 .md-row .md-col-2:hover{
+  transform: scale(1.4);
+  transition-duration: 1s;
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-1{
+  animation: md-col-1-2 1s;
+  animation-fill-mode: forwards;
+  transition-duration: 1s;
+}
+@keyframes md-col-1-2{
+  0%{
+    left: 29.5%;
+    top: 38.5%;
+  }
+  100%{
+    left: 27.5%;
+    top: 48.5%;
+  }
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-3{
+  animation: md-col-3-2 1s;
+  animation-fill-mode: forwards;
+  transition-duration: 1s;
+}
+@keyframes md-col-3-2{
+  0%{
+    right: 30.7%;
+    top: 36.5%;
+  }
+  100%{
+    right: 28.7%;
+    top: 48.5%;
+  }
+}
+.page-step-2 .md-row.hovering-on-2 .md-col-4{
+  animation: md-col-4-2 1s;
+  animation-fill-mode: forwards;
+  transition-duration: 1s;
+}
+@keyframes md-col-4-2{
+  0%{
+    top: 51%;
+  }
+  100%{
+    top: 55%;
+  }
+}
+.page-step-2 .md-row .md-col-1:hover{
+   transform: scale(1.4);
+  transition-duration: 1s;
+}
+.page-step-2 .md-row .md-col-3:hover{
+   transform: scale(1.4);
+  transition-duration: 1s;
+}
+.page-step-2 .md-row .md-col-2{
+  position: absolute;
+  left: 42.5%;
+    top: 31%;
+    width: 15.5%;
+  cursor: url("../images/msp-2.png"), auto;
+  z-index: 3;
+}
+.page-step-2 .md-row .md-col-3{
+  position: absolute;
+  right: 30.7%;
+    top: 36.5%;
+    width: 20%;
+  cursor: url("../images/msp-2.png"), auto;
+}
+.page-step-2 .md-row .md-col-4{
+  position: absolute;
+  right: 40%;
+    top: 51%;
+    width: 21%;
+  cursor: url("../images/msp-2.png"), auto;
+  z-index: 4;
+}
+.page-step-2 .md-row .md-col{
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 99999;
+ 
+}
+
+.custom-cursor img {
+  width: 60%;          /* giữ nguyên kích thước ảnh */
+  height: auto;         /* giữ nguyên kích thước ảnh */
+  pointer-events: none;
+}
+
+.page-step-2 .md-row.active-2 .md-col-1, .page-step-2 .md-row.active-3 .md-col-1, .page-step-2 .md-row.active-4 .md-col-1{
+  animation: moveout-1 1.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveout-1{
+  0%{
+    left: 29.5%;
+  }
+  100%{
+    left: -100%;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-1 .md-col-2, .page-step-2 .md-row.active-3 .md-col-2, .page-step-2 .md-row.active-4 .md-col-2{
+  animation: moveout-2 1.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveout-2{
+  0%{
+    left: 42.5%;
+  }
+  100%{
+    left: -100%;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-1 .md-col-3, .page-step-2 .md-row.active-2 .md-col-3, .page-step-2 .md-row.active-4 .md-col-3{
+  animation: moveout-3 1.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveout-3{
+  0%{
+    right: 30.7%;
+  }
+  100%{
+    right: -100%;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-1 .md-col-4, .page-step-2 .md-row.active-2 .md-col-4, .page-step-2 .md-row.active-3 .md-col-4{
+  animation: moveout-4;
+  animation-fill-mode: forwards;
+}
+@keyframes moveout-4{
+  0%{
+    top: 51%;
+  }
+  100%{
+    top: 100%;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-1 .md-col-1{
+  animation: movein-1 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes movein-1{
+  0%{
+    left: 29.5%;
+    transform: scale(1.0);
+  }
+  30%{
+    left: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  70%{
+    left: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100%{
+    left: 40%;
+    transform: scale(1.3);
+    opacity: 0;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-2 .md-col-2{
+  animation: movein-2 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes movein-2{
+  0%{
+    left: 42.5%;
+    transform: scale(1.0);
+  }
+  30%{
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
+    opacity: 1;
+  }
+   70%{
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
+    opacity: 1;
+  }
+  100%{
+    left: 42.5%;
+    transform: scale(1.3);
+    top: 37%;
+    opacity: 0;
+    display: none;
+  }
+}
+
+.page-step-2 .md-row.active-3 .md-col-3{
+  animation: movein-3 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes movein-3{
+  0%{
+    right: 30.7%;
+    transform: scale(1.0);
+  }
+  30%{
+    right: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  70%{
+    right: 40%;
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100%{
+    right: 40%;
+    transform: scale(1.3);
+    opacity: 0;
+    display: none;
+  }
+}
+.page-step-2 .md-row.active-4 .md-col-4{
+  animation: movein-4 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes movein-4{
+  0%{
+    right: 40%;
+    transform: scale(1.0);
+  }
+  30%{
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
+    opacity: 1;
+  }
+  70%{
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
+    opacity: 1;
+  }
+  100%{
+    right: 40%;
+    transform: scale(1.3);
+    top: 32%;
+    opacity: 0;
+    display: none;
+  }
+}
+
+
+
+
+
+
+.page-main .md-form.active input{
+  border: red 3px solid;
+  animation: shake-horizontal 1.5s;
+}
+@keyframes shake-horizontal {
+  /* Tại 0% (bắt đầu), không xoay */
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    /* Tại 20%, xoay nhẹ sang trái */
+    10% {
+        transform: rotate(-3deg);
+    }
+    /* Tại 40%, xoay sang phải */
+    20% {
+        transform: rotate(3deg);
+    }
+    /* Tại 60%, xoay nhẹ sang trái */
+    30% {
+        transform: rotate(-1deg);
+    }
+    /* Tại 80%, xoay nhẹ sang phải */
+    40% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(-2deg);
+    }
+    /* Tại 40%, xoay sang phải */
+    60% {
+        transform: rotate(2deg);
+    }
+    70%{
+      transform: rotate(0deg);
+    }
+}
+.page-main {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+.page-main.page-exit {
+    /* Trang mờ dần khi chuyển hướng */
+    opacity: 0; 
+}
+.img-ico-1{
+  position: absolute;
+      left: 39%;
+    top: 24%;
+    width: 2%;
+    opacity: 0;
+}
+.img-ico-2{
+  position: absolute;
+  left: 45%;
+    top: 33%;
+    width: 5%;
+    opacity: 0;
+}
+.img-ico-3{
+  position: absolute;
+  left: 48%;
+    top: 20%;
+    width: 13%;
+    opacity: 0;
+}
+.img-ico-4{
+  position: absolute;
+  left: 37%;
+    top: 17%;
+    width: 25%;
+    opacity: 0;
+}
+.img-ico-5{
+  position: absolute !important;
+      left: 50%;
+    top: 35%;
+    width: 10%;
+    opacity: 0;
+    z-index: 10;
+}
+
+.page-step-2 .md-row.active-1 .img-ico-3{
+  animation: img-ico-3 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-2 .img-ico-3{
+  animation: img-ico-3 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-3 .img-ico-3{
+  animation: img-ico-3 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-4 .img-ico-3{
+  animation: img-ico-3 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes img-ico-3{
+  0%{
+    opacity: 0;
+    z-index: 2;
+  }
+  50%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    z-index: 2;
+  }
+}
+.page-step-2 .md-row.active-1 .img-ico-2{
+  animation: img-ico-2 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-2 .img-ico-2{
+  animation: img-ico-2 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-3 .img-ico-2{
+  animation: img-ico-2 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-4 .img-ico-2{
+  animation: img-ico-2 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes img-ico-2{
+  0%{
+    opacity: 0;
+    z-index: 2;
+  }
+  50%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    z-index: 2;
+  }
+}
+.page-step-2 .md-row.active-1 .img-ico-1{
+  animation: img-ico-1 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-2 .img-ico-1{
+  animation: img-ico-1 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-3 .img-ico-1{
+  animation: img-ico-1 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-4 .img-ico-1{
+  animation: img-ico-1 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes img-ico-1{
+  0%{
+    opacity: 0;
+    z-index: 2;
+  }
+  50%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    z-index: 2;
+  }
+}
+.page-step-2 .md-row.active-1 .img-ico-4{
+  animation: img-ico-4 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-2 .img-ico-4{
+  animation: img-ico-4 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-3 .img-ico-4{
+  animation: img-ico-4 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-4 .img-ico-4{
+  animation: img-ico-4 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes img-ico-4{
+  0%{
+    opacity: 0;
+    z-index: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    z-index: 1;
+  }
+}
+.page-step-2 .md-row.active-1 .img-ico-5{
+  animation: img-ico-5 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-2 .img-ico-5{
+  animation: img-ico-5 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-3 .img-ico-5{
+  animation: img-ico-5 4s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-row.active-4 .img-ico-5{
+  animation: img-ico-5 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes img-ico-5{
+  0%{
+    opacity: 0;
+    z-index: 10;
+  }
+  50%{
+    opacity: 0;
+  }
+  55%   { transform: rotate(-12deg) translateX(-3px); opacity:1; }
+  60%  { transform: rotate(4deg) translateX(1px); }
+  65%  { transform: rotate(-8deg) translateX(-2px); }
+  70%  { transform: rotate(6deg) translateX(2px); }
+  75% { transform: rotate(-12deg) translateX(-3px); opacity: 1;
+    z-index: 10;}
+    100%{
+      opacity: 0;
+      z-index: 10;
+    }
+}
+
+.footer{
+  background: #ff0069;
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  text-align: center;
+   padding: 10px 0px;
+  z-index: 10;
+}
+.footer a.cl-app{
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-size: calc(8px + 1vw);
+  line-height: 1;
+  font-weight: 600;
+  color: #FFF;
+  display: block;
+  
+}
+.footer a.md-dk{
+  color: #FFF;
+  text-decoration: underline;
+   font-family: 'EuclidCircularAVN-Regular';
+   font-size: calc(4px + 0.8vw);
+}
+.page-step-2 .md-row img{
+  position: relative;
+  z-index: 2;
+}
+.page-step-2 .md-row .md-col-2 .effect-2{
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-2:hover .effect-2{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-1 .effect-1{
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-1:hover .effect-1{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-3 .effect-3{
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-3:hover .effect-3{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row .md-col-4 .effect-4{
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+.page-step-2 .md-row .md-col-4:hover .effect-4{
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.page-step-2 .md-row.active-1 .md-col-1 .effect-1{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-2 .effect-2{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-3 .effect-3{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-4 .effect-4{
+  opacity: 1;
+}
+.page-main .md-form .bg-img-1{
+  width: 70%;
+  display: table;
+  margin: 0 auto;
+}
+.page-main .md-form .ico-img-1{
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+}
+.page-main .md-form .ico-img-2{
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+}
+.page-main .md-form .ico-img-1{
+  animation: bg-img-1 4s infinite;
+}
+.page-main .md-form .ico-img-2{
+  animation: bg-img-1 4s infinite;
+}
+.page-main .md-form.active-1 .ico-img-1{
+  animation: bg-img-1 4s;
+}
+.page-main .md-form.active-1 .ico-img-2{
+  animation: bg-img-1 4s;
+}
+@keyframes bg-img-1{
+ 0% {
+    filter: brightness(100%); /* Độ sáng bình thường */
+  }
+  15% {
+    filter: brightness(120%); /* Sáng hơn */
+  }
+  30% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  45% {
+    filter: brightness(120%); /* Tối đi */
+  }
+  60% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  75% {
+    filter: brightness(120%); /* Tối đi */
+  }
+  90% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+}
+
+
+.page-step-2 .md-row.active-2 .md-col-2 .effect-2{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-1 .md-col-1 .effect-1{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-3 .md-col-3 .effect-3{
+  opacity: 1;
+}
+.page-step-2 .md-row.active-4 .md-col-4 .effect-4{
+  opacity: 1;
+}
+.page-step-2 .md-row{
+  opacity: 0;
+  animation: md-row 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes md-row{
+  0%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.btn-cf{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  width: 24%;
+  display: none;
+}
+.md-product{
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
+  display: none;
+}
+
+.page-step-2 .md-row.active-1 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-2 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-3 .md-product{
+  animation: md-product 2s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-4 .md-product{
+  animation: md-product 2.5s;
+  animation-fill-mode: forwards;
+  display: block;
+  animation-delay: 4.3s;
+  opacity: 0;
+}
+@keyframes md-product{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.page-step-2 .md-row.active-1 .btn-cf{
+  display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-2 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-3 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+.page-step-2 .md-row.active-4 .btn-cf{
+   display: block;
+  animation: btn-cf 2.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3.7s;
+  opacity: 0;
+}
+@keyframes btn-cf{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.md-product .product-1{
+  position: absolute;
+  left: 17%;
+  top: 40%;
+  width: 18%;
+  z-index: 9;
+}
+.md-product .product-1 img{
+  margin-bottom: 10px;
+}
+.md-product .product-1 p{
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: calc(4px + 1vw);
+  font-weight: 600;
+  color: #000;
+  line-height: 1;
+}
+.md-product .product-1 p.giacu{
+  text-decoration: line-through;
+  color: #FFF;
+  font-size: calc(3px + 0.8vw);
+}
+.md-product .product-2{
+  left: 41%;
+}
+.md-product .product-3{
+  left: 64.5%;
+}
+
+/* Ví dụ CSS cho hình ảnh đi kèm (Trailing Image) */
+.trailing-cursor-style {
+    position: fixed !important;
+    top: 5%;
+    left: -10%;
+    pointer-events: none;
+    z-index: 9998 !important; /* Đặt sau con trỏ chính */
+    width: 8%; /* Kích thước */
+    height: auto;
+    /* Căn giữa hình ảnh (nếu con trỏ chính cũng dùng) */
+    
+    /* QUAN TRỌNG: Transition dài hơn để tạo độ trễ (delay/trail) */
+    animation: pulse 2s infinite;
+    
+}
+
+@keyframes pulse {
+   0% {
+    filter: brightness(100%); /* Độ sáng bình thường */
+  }
+  15% {
+    filter: brightness(150%); /* Sáng hơn */
+  }
+  30% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  45% {
+    filter: brightness(150%); /* Tối đi */
+  }
+  60% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  75% {
+    filter: brightness(150%); /* Tối đi */
+  }
+  90% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+}
+
+
+.page-demo{
+  height: 100vh;
+   background: url(../images/bg-effect-mouse-2.png) no-repeat;
+  background-size: 100% auto;
+}
+.page-demo .md-row .md-col-2{
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  position: fixed;
+  display: block;
+}
+.page-demo .custom-cursor{
+  position: absolute !important;
+  width: 50%;
+  height: auto;
+}
+.page-demo .trailing-cursor-style{
+  position: absolute !important;
+  z-index: 99999 !important;
+  top: 38%;
+    left: 0%;
+    width: 25%;
+    transform: translate(0,0) !important;
+}
+
