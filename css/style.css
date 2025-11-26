@@ -1161,7 +1161,8 @@ img{
 }
 .page-demo .trailing-cursor-style{
   z-index: 99999 !important;
-  top: 4%;
-  left: -8%;
+  top: 2%;
+  left: -3%;
+  width: 5%;
 }
 
