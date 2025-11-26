@@ -48,6 +48,7 @@ const cursorImages = {
 };
 
 document.querySelectorAll(".cursor-box").forEach(box => {
+
     box.addEventListener("mouseenter", e => {
         let key = box.dataset.cursor; // Lấy key (ví dụ: 'cursor1')
 
@@ -331,3 +332,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 new WOW().init();
 
+const cursor = document.querySelector('.cursorimgactive');
+
+document.addEventListener('click', () => {
+  cursor.classList.add('active');
+});
