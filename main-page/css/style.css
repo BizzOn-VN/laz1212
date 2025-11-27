@@ -91,6 +91,7 @@ img{
 }
 .page-main{
   position: relative;
+  overflow: hidden;
 }
 .page-main .md-text-1{
   position: absolute;
