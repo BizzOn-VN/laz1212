@@ -349,6 +349,7 @@ img{
     top: 36.5%;
     width: 20%;
   cursor: url("../images/msp-2.png"), auto;
+  z-index: 4;
 }
 .page-step-2 .md-row .md-col-4{
   position: absolute;

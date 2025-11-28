@@ -299,7 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();
             }
+            if (event.key === 'Enter') {
+                handleSubmission(event);
+            }
         });
+
     });
 
     // Gắn sự kiện cho Nút Xác Nhận
@@ -389,7 +393,7 @@ $(document).ready(function() {
             document.addEventListener('click', () => {
               setTimeout(() => {
                 customcursor.classList.add('active-custom');
-            }, 2000);
+            }, 500);
             });
 
 

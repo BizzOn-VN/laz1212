@@ -397,6 +397,7 @@ img{
     top: 36.5%;
     width: 20%;
   cursor: url("../images/msp-2.png"), auto;
+  z-index: 3;
 }
 .page-step-2 .md-row .md-col-4{
   position: absolute;
@@ -877,12 +878,12 @@ img{
 }
 .page-step-2 .md-row .md-col-2 .effect-2{
   position: absolute;
-  left: 57%;
-  top: -16%;
+  left: 56%;
+  top: -15%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
-  width: 95%;
+  width: 97%;
 }
 .page-step-2 .md-row .md-col-2:hover .effect-2{
   opacity: 1;
@@ -891,8 +892,8 @@ img{
 
 .page-step-2 .md-row .md-col-1 .effect-1{
   position: absolute;
-  left: 49%;
-  top: -15%;
+  left: 45%;
+  top: -14%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
@@ -905,8 +906,8 @@ img{
 
 .page-step-2 .md-row .md-col-3 .effect-3{
   position: absolute;
-  left: 57%;
-  top: -13%;
+  left: 56%;
+  top: -12%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
@@ -919,12 +920,12 @@ img{
 
 .page-step-2 .md-row .md-col-4 .effect-4{
   position: absolute;
-  left: 45%;
-  top: -0.5%;
-  transform: translateX(-50%);
-  z-index: 1;
-  opacity: 0;
-  width: 110%;
+  left: 44%;
+    top: -1.5%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+    width: 122%;
 }
 .page-step-2 .md-row .md-col-4:hover .effect-4{
   opacity: 1;
@@ -1264,13 +1265,39 @@ img{
   animation-fill-mode: forwards;
 }
 
+
 .trailing-cursor-style{
   position: absolute !important;
   z-index: 99999 !important;
   top: 66%;
     left: -24%;
     width: 38%;
+    animation: pulse 2s infinite;
+
 /*    transform: translate(0,0) !important;*/
+}
+@keyframes pulse {
+   0% {
+    filter: brightness(100%); /* Độ sáng bình thường */
+  }
+  15% {
+    filter: brightness(150%); /* Sáng hơn */
+  }
+  30% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  45% {
+    filter: brightness(150%); /* Tối đi */
+  }
+  60% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
+  75% {
+    filter: brightness(150%); /* Tối đi */
+  }
+  90% {
+    filter: brightness(100%); /* Quay về bình thường */
+  }
 }
 @keyframes cursor-trail{
   0%{
