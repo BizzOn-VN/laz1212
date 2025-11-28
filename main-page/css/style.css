@@ -212,6 +212,63 @@ img{
   top: 7.5%;
     width: 54%;
 }
+.page-step-2 .md-text-3 .md-title{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2vw;
+  line-height: 1;
+}
+.page-step-2 .md-text-3 .title-2 .md-title{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  transform: translate(-50%,-50%);
+  font-size: 2vw
+  line-height: 1;
+}
+.page-step-2 .md-text-3 .title-1{
+  opacity: 1;
+}
+.page-step-2 .md-text-3 .title-2{
+  opacity: 0;
+  display: table;
+  margin: 0 auto;
+  width: 62%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.page-step-2 .md-text-3.active-title .title-1{
+  animation: title-1 2s;
+  animation-fill-mode: forwards;
+}
+.page-step-2 .md-text-3.active-title .title-2{
+  animation: title-2 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes title-1{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes title-2{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
 
 .page-step-2 .md-row .md-col-1{
   position: absolute;
@@ -618,7 +675,7 @@ img{
     z-index: 10;
 }
 
-.page-step-2 .md-row.active-1 .img-ico-3{
+/*.page-step-2 .md-row.active-1 .img-ico-3{
   animation: img-ico-3 4s;
   animation-fill-mode: forwards;
 }
@@ -649,7 +706,7 @@ img{
     opacity: 1;
     z-index: 2;
   }
-}
+}*/
 .page-step-2 .md-row.active-1 .img-ico-2{
   animation: img-ico-2 4s;
   animation-fill-mode: forwards;
@@ -974,7 +1031,7 @@ img{
 .btn-cf{
   position: absolute;
   left: 38%;
-  top: 25%;
+  top: 27%;
   width: 24%;
   display: none;
 }
@@ -1067,8 +1124,8 @@ img{
 .md-product .product-1{
   position: absolute;
   left: 17%;
-  top: 40%;
-  width: 18%;
+      bottom: 15%;
+    width: 19%;
   z-index: 9;
 }
 .md-product .product-1 img{
@@ -1086,6 +1143,10 @@ img{
   text-decoration: line-through;
   color: #FFF;
   font-size: calc(3px + 0.8vw);
+}
+.md-product .product-1 p.title-sp{
+  font-size: calc(3px + 0.8vw);
+  margin-bottom: 5px;
 }
 .md-product .product-2{
   left: 41%;
@@ -1201,4 +1262,57 @@ img{
 .active-custom{
   animation: active-none 2s ;
   animation-fill-mode: forwards;
+}
+
+.trailing-cursor-style{
+  position: absolute !important;
+  z-index: 99999 !important;
+  top: 66%;
+    left: -24%;
+    width: 38%;
+/*    transform: translate(0,0) !important;*/
+}
+@keyframes cursor-trail{
+  0%{
+    opacity: 1;
+  }
+  20%   { transform: rotate(-12deg) translateX(-3px); opacity:1; }
+  30%  { transform: rotate(4deg) translateX(1px); }
+  40%  { transform: rotate(-8deg) translateX(-2px); }
+  50%  { transform: rotate(6deg) translateX(2px); }
+  60% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+    100%{
+      opacity: 1;
+    }
+}
+
+.img-ico-3{
+  position: absolute !important;
+  left: 46%;
+    top: 37%;
+    width: 13%;
+    opacity: 0;
+    z-index: 1;
+    display: none;
+}
+.img-ico-3.active-ico{
+    animation: img-ico-3 3s; 
+  animation-fill-mode: forwards;
+  display: block;
+}
+
+@keyframes img-ico-3{
+  0%{
+    opacity: 0;
+    z-index: 5;
+    display: block;
+  }
+  50%{
+    opacity: 1;
+    z-index: 5;
+    display: block;
+  }
+  100%{
+    opacity: 0;
+  }
 }
