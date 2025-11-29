@@ -405,23 +405,58 @@ $(document).ready(function() {
     });
 });
 
-
-// 1. Lấy tham chiếu đến phần tử cần thay đổi text
+// 1. Lấy tất cả các thẻ hình ảnh bạn muốn thay đổi
 const headerText = document.getElementById('header-text');
+const title_sp = document.getElementById('title-sp');
+// Lấy 3 thẻ hình ảnh
+const img1 = document.getElementById('header-image-1');
+const img2 = document.getElementById('header-image-2');
+const img3 = document.getElementById('header-image-3');
 
-// 2. Lấy tất cả các vùng sản phẩm (có class là product-area)
+// 2. Lấy tất cả các vùng sản phẩm
 const productAreas = document.querySelectorAll('.md-col');
 
 // 3. Lặp qua từng vùng và thêm sự kiện click
 productAreas.forEach(area => {
     area.addEventListener('click', function() {
         
-       const name = this.getAttribute('data-product-name');
-    const price = this.getAttribute('data-product-price');
+        // --- Lấy dữ liệu Text (giữ nguyên) ---
+        const title = this.getAttribute('data-title');
+        const name = this.getAttribute('data-product-name');
+        const price = this.getAttribute('data-product-price');
+        const sp = this.getAttribute('data-sp');
         
-        const finalHtml = "Chổi thần mỹ phẩm"+ '<br>' + name + '<br>' + price;
-    
-    // Gán kết quả vào innerHTML
-    headerText.innerHTML = finalHtml;
+        // --- Lấy 3 URL hình ảnh mới ---
+        // Ví dụ: <div data-img-url-1="hinh1.jpg" ...>
+        const url1 = this.getAttribute('data-img-url-1');
+        const url2 = this.getAttribute('data-img-url-2');
+        const url3 = this.getAttribute('data-img-url-3');
+        
+        
+        // --- Thay đổi Text ---
+        const finalHtml = title + '<br>' + name + '<br>' + price;
+        const finaltitle = sp;
+        
+        if (headerText) {
+            headerText.innerHTML = finalHtml;
+        }
+
+        if (title_sp) {
+            title_sp.innerHTML = finaltitle;
+        }
+        
+        // --- Thay đổi 3 Hình ảnh ---
+        // Kiểm tra xem thẻ có tồn tại và URL có tồn tại không trước khi gán
+        if (img1 && url1) {
+            img1.src = url1;
+        }
+
+        if (img2 && url2) {
+            img2.src = url2;
+        }
+        
+        if (img3 && url3) {
+            img3.src = url3;
+        }
     });
 });
