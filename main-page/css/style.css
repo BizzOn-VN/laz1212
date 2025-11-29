@@ -1298,7 +1298,7 @@ img{
 }
 
 .md-cursor.active{
-  animation: cursor-trail 1.5s;
+  animation: cursor-trail 3s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
@@ -1307,13 +1307,18 @@ img{
   0%{
     opacity: 1;
   }
-  20%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
-  30%  { transform: rotate(8deg) translateX(2px); }
-  40%  { transform: rotate(-12deg) translateX(-3px); }
-  50%  { transform: rotate(6deg) translateX(2px); }
-  60% { transform: rotate(-16deg) translateX(-4px); opacity: 1;}
-  70%  { transform: rotate(6deg) translateX(2px); }
-  80% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+  10%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
+  15%  { transform: rotate(8deg) translateX(2px); }
+  20%  { transform: rotate(-12deg) translateX(-3px); }
+  25%  { transform: rotate(6deg) translateX(2px); }
+  30% { transform: rotate(-16deg) translateX(-4px); opacity: 1;}
+  35%  { transform: rotate(6deg) translateX(2px); }
+  40% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+  45%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
+  50%  { transform: rotate(8deg) translateX(2px); opacity:1; }
+  55%  { transform: rotate(-12deg) translateX(-3px); opacity:1; }
+  60%  { transform: rotate(6deg) translateX(2px); opacity:1; }
+
     100%{
       opacity: 1;
     }
@@ -1394,19 +1399,6 @@ img{
   90% {
     filter: brightness(100%); /* Quay về bình thường */
   }
-}
-@keyframes cursor-trail{
-  0%{
-    opacity: 1;
-  }
-  20%   { transform: rotate(-12deg) translateX(-3px); opacity:1; }
-  30%  { transform: rotate(4deg) translateX(1px); }
-  40%  { transform: rotate(-8deg) translateX(-2px); }
-  50%  { transform: rotate(6deg) translateX(2px); }
-  60% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
-    100%{
-      opacity: 1;
-    }
 }
 
 .img-ico-3{
