@@ -1084,6 +1084,11 @@ img{
   top: 27%;
   width: 24%;
   display: none;
+  transition-duration: 0.5s !important;
+}
+.btn-cf img:hover{
+  transform: scale(1.1) !important;
+  transition-duration: 0.5s !important;
 }
 
 .md-product{
@@ -1180,6 +1185,10 @@ img{
 }
 .md-product .product-1 img{
   margin-bottom: 10px;
+}
+.md-product .product-1 img:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
 }
 .md-product .product-1 p{
   margin-bottom: 0px;
