@@ -385,11 +385,7 @@ $(document).ready(function() {
               
             });
             
-            document.addEventListener('click', () => {
-              setTimeout(() => {
-                $clickedElement.addClass('active-none');
-            }, 1500);
-            });
+            $clickedElement.addClass('active-none');
             document.addEventListener('click', () => {
               setTimeout(() => {
                 customcursor.classList.add('active-custom');
@@ -410,8 +406,22 @@ $(document).ready(function() {
 });
 
 
-// const cursor = document.querySelector('.md-cursor');
+// 1. Lấy tham chiếu đến phần tử cần thay đổi text
+const headerText = document.getElementById('header-text');
 
-// document.addEventListener('click', () => {
-//   cursor.classList.add('active');
-// });
+// 2. Lấy tất cả các vùng sản phẩm (có class là product-area)
+const productAreas = document.querySelectorAll('.md-col');
+
+// 3. Lặp qua từng vùng và thêm sự kiện click
+productAreas.forEach(area => {
+    area.addEventListener('click', function() {
+        
+       const name = this.getAttribute('data-product-name');
+    const price = this.getAttribute('data-product-price');
+        
+        const finalHtml = "Chổi thần mỹ phẩm"+ '<br>' + name + '<br>' + price;
+    
+    // Gán kết quả vào innerHTML
+    headerText.innerHTML = finalHtml;
+    });
+});
