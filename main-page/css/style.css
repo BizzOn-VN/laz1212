@@ -203,6 +203,10 @@ img{
   text-align: center;
   font-weight: 600;
 }
+.page-main .md-text-3 p{
+  font-size: 2vw;
+  line-height: 1.2;
+}
 .page-step-2{
   position: relative;
 }
@@ -227,7 +231,7 @@ img{
   top: 50%;
   width: 80%;
   transform: translate(-50%,-50%);
-  font-size: 2vw
+  font-size: 1.9vw;
   line-height: 1;
 }
 .page-step-2 .md-text-3 .title-1{
@@ -926,12 +930,12 @@ img{
 }
 .page-step-2 .md-row .md-col-2 .effect-2{
   position: absolute;
-    left: 58.5%;
-    top: -19%;
+    left: 58%;
+    top: -14%;
     transform: translateX(-50%);
     z-index: 1;
     opacity: 0;
-    width: 108%;
+    width: 100%;
 }
 .page-step-2 .md-row .md-col-2:hover .effect-2{
   opacity: 1;
@@ -954,12 +958,12 @@ img{
 
 .page-step-2 .md-row .md-col-3 .effect-3{
   position: absolute;
-  left: 55.5%;
-  top: -12.5%;
-  transform: translateX(-50%);
-  z-index: 1;
-  opacity: 0;
-  width: 80%;
+    left: 56%;
+    top: -11.5%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+    width: 75%;
 }
 .page-step-2 .md-row .md-col-3:hover .effect-3{
   opacity: 1;
@@ -968,9 +972,8 @@ img{
 
 .page-step-2 .md-row .md-col-4 .effect-4{
   position: absolute;
-   position: absolute;
-    left: 43.5%;
-    top: -13%;
+    left: 55.5%;
+    top: -17.5%;
     transform: translateX(-50%);
     z-index: 1;
     opacity: 0;
@@ -1086,7 +1089,22 @@ img{
   display: none;
   transition-duration: 0.5s !important;
 }
-.btn-cf img:hover{
+.btn-cf p{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2.2vw;
+  z-index: 2;
+  color: #FFF;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+.btn-cf a{
+  display: inline-block;
+}
+.btn-cf a:hover{
   transform: scale(1.1) !important;
   transition-duration: 0.5s !important;
 }
@@ -1106,8 +1124,8 @@ img{
 .md-product .title-product .md-title-sp{
   position: absolute;
     left: 50%;
-    top: 6.5%;
-    font-size: 1.7vw;
+    top: 10.5%;
+    font-size: 1.5vw;
     transform: translateX(-50%);
     z-index: 5;
     width: 100%;
@@ -1218,6 +1236,7 @@ img{
   text-decoration: line-through;
   color: #FFF;
   font-size: calc(3px + 0.8vw);
+  font-style: italic;
 }
 .md-product .product-1 p.title-sp{
   font-size: calc(3px + 0.8vw);
@@ -1429,5 +1448,243 @@ img{
   }
   100%{
     opacity: 0;
+  }
+}
+
+.md-desktop{
+  display: block;
+}
+.md-mobile{
+  display: none;
+}
+@media screen and (max-width: 767px){
+  .md-desktop{
+    display: none;
+  }
+  .md-mobile{
+    display: block;
+  }
+  .page-main .logo{
+    width: 46%;
+    position: absolute;
+    left: 27%;
+    top: 14%;
+  }
+  .page-main .md-text-1{
+    left: 13%;
+        top: 33%;
+        width: 74%;
+  }
+  .page-main .md-text-3{
+    left: 10%;
+    width: 80%;
+    top: 41.5%;
+  }
+  .page-main .md-text-3 p{
+    font-size: 5vw;
+  }
+  .page-main .md-text-2{
+    left: 28.5%;
+        top: 69%;
+        width: 43%;
+  }
+  .page-main .md-form{
+    left: 0%;
+    top: 53%;
+    width: 100%;
+  }
+  .page-main .md-form .bg-img-1{
+    width: 80%;
+  }
+  .page-main .md-form .img-1{
+    width: 75%;
+  }
+  .page-main .md-form form{
+    width: 60%;
+    gap: 5px;
+  }
+  .footer a.cl-app{
+    font-size: calc(8px + 3vw);
+  }
+  .footer a.md-dk{
+    font-size: calc(4px + 2.8vw);
+  }
+  .page-main .md-form .ico-img-1{
+    right: -10%;
+    width: 40%;
+  }
+  .page-main .md-form .ico-img-2{
+    left: -10%;
+    width: 40%;
+  }
+  .page-step-2 .md-text-3{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 10%;
+  }
+  .page-step-2 .md-text-3 .md-title{
+    font-size: 3.5vw;
+  }
+  .page-step-2 .md-row .md-col-1{
+    left: 7%;
+    top: 44%;
+    width: 42.5%;
+  }
+  @keyframes movein-1{
+    0%{
+      left: 7%
+      transform: scale(1.0);
+    }
+    30%{
+      left: 31%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    70%{
+      left: 31%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100%{
+      left: 31%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+  .page-step-2 .md-row .md-col-1 .sp-1{
+    margin-top: -28%;
+  }
+  .page-step-2 .md-row .md-col-1 .md-sp-1{
+    width: 47%;
+  }
+  .page-step-2 .md-row .md-col-2{
+    left: 30%;
+    top: 33%;
+    width: 36.5%;
+  }
+  @keyframes movein-2{
+    0%{
+      left: 30%;
+      transform: scale(1.0);
+    }
+    30%{
+      left: 35%;
+      transform: scale(1.5);
+      top: 37%;
+      opacity: 1;
+    }
+     70%{
+      left: 35%;
+      transform: scale(1.5);
+      top: 37%;
+      opacity: 1;
+    }
+    100%{
+      left: 35%;
+      transform: scale(1.5);
+      top: 37%;
+      opacity: 1;
+    }
+  }
+  .page-step-2 .md-row .md-col-3{
+    right: 6%;
+    top: 38.5%;
+    width: 45%;
+  }
+  @keyframes movein-3{
+    0%{
+      right: 6%;
+      transform: scale(1.0);
+    }
+    30%{
+      right: 26%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    70%{
+      right: 26%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100%{
+      right: 26%;
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+  .page-step-2 .md-row .md-col-4{
+    right: 23%;
+    top: 50%;
+    width: 52%;
+  }
+  @keyframes movein-4{
+    0%{
+      right: 50%;
+      transform: scale(1.0);
+    }
+    30%{
+      right: 22%;
+      transform: scale(1.5);
+      top: 38%;
+      opacity: 1;
+    }
+    70%{
+      right: 22%;
+      transform: scale(1.5);
+      top: 38%;
+      opacity: 1;
+    }
+    100%{
+      right: 22%;
+      transform: scale(1.5);
+      top: 38%;
+      opacity: 1;
+    }
+  }
+  .page-step-2 .md-text-3 .title-2 .md-title{
+    font-size: 3.5vw;
+  }
+  .btn-cf{
+    left: 30%;
+    width: 43%;
+  }
+  .md-product{
+    width: 95%;
+  }
+  .md-product .title-product .md-title-sp{
+    font-size: 2.4vw;
+  }
+  .md-product .product-1{
+    bottom: 13%;
+  }
+  .md-product .product-1 p.title-sp{
+    font-size: calc(4px + 1.8vw);
+  }
+  .md-product .product-1 p{
+    font-size: calc(6px + 2vw);
+  }
+  .md-product .product-1 p.giacu{
+    font-size: calc(4px + 1.8vw);
+  }
+  .md-product .product-1 img{
+    margin-bottom: 5px;
+    width: 90%;
+    display: table;
+    margin: 0 auto 5px auto;
+  }
+  .md-product .product-1 p.title-sp{
+    margin-bottom: 3px;
+  }
+  .btn-cf p{
+    font-size: 4vw;
+  }
+  .img-ico-3{
+    left: 25%;
+    top: 30%;
+    width: 50%;
+  }
+  .custom-cursor{
+    width: 30%;
   }
 }
