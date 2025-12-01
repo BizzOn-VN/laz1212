@@ -19,7 +19,7 @@
 
 
 jQuery(document).on("ready",function () {
-	
+    
 });
 
 
@@ -224,19 +224,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // --- 2. Xử lý khi nhấn Backspace/Delete (Tự động quay lại) ---
-        input.addEventListener('keyup', (event) => {
-                // Kiểm tra phím xóa (Backspace)
-                if (event.key === 'Backspace' || event.key === 'Delete') {
-                    // Nếu ô hiện tại bị trống sau khi xóa VÀ không phải ô đầu tiên
-                    if (input.value.length === 0 && index > 0) {
-                        // Chuyển focus về ô trước đó
-                        inputs[index - 1].focus();
-                        
-                        // Tùy chọn: chọn (select) nội dung trong ô trước đó để người dùng có thể xóa tiếp
-                        inputs[index - 1].select(); 
-                    }
+        /* input.addEventListener('keyup', (event) => {
+            // Kiểm tra phím xóa (Backspace)
+            if (event.key === 'Backspace' || event.key === 'Delete' || event.key === 8) {
+                // Nếu ô hiện tại bị trống sau khi xóa VÀ không phải ô đầu tiên
+                if (input.value.length === 0 && index > 0) {
+                    // Chuyển focus về ô trước đó
+                    inputs[index - 1].focus();
+                    
+                    // Tùy chọn: chọn (select) nội dung trong ô trước đó để người dùng có thể xóa tiếp
+                    inputs[index - 1].select(); 
                 }
-            });
+            }
+        }); */
         // --- 3. Xử lý Dán (Paste) nhiều ký tự vào ô đầu tiên (Tùy chọn) ---
         // Giúp người dùng dán toàn bộ mã OTP từ clipboard
         input.addEventListener('paste', (event) => {
@@ -376,10 +376,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Tự động quay lại khi nhấn Backspace
         input.addEventListener('keydown', (event) => {
-            if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
+            if ((event.key === 'Backspace' || event.key === 8) && input.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();
             }
-            if (event.key === 'Enter') {
+            console.log(event.key);
+            if (event.key === 'Enter' || event.key === 13) {
                 handleSubmission(event);
             }
         });
