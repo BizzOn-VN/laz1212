@@ -191,14 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // --- 2. Xử lý khi nhấn Backspace/Delete (Tự động quay lại) ---
-        input.addEventListener('keydown', (event) => {
-            // Kiểm tra xem phím nhấn có phải là Backspace không
-            if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
-                // Nếu ô hiện tại trống và không phải ô đầu tiên, chuyển focus về ô trước
-                inputs[index - 1].focus();
-            }
-        });
-        
+        input.addEventListener('keyup', (event) => {
+                // Kiểm tra phím xóa (Backspace)
+                if (event.key === 'Backspace' || event.key === 'Delete') {
+                    // Nếu ô hiện tại bị trống sau khi xóa VÀ không phải ô đầu tiên
+                    if (input.value.length === 0 && index > 0) {
+                        // Chuyển focus về ô trước đó
+                        inputs[index - 1].focus();
+                        
+                        // Tùy chọn: chọn (select) nội dung trong ô trước đó để người dùng có thể xóa tiếp
+                        inputs[index - 1].select(); 
+                    }
+                }
+            });
         // --- 3. Xử lý Dán (Paste) nhiều ký tự vào ô đầu tiên (Tùy chọn) ---
         // Giúp người dùng dán toàn bộ mã OTP từ clipboard
         input.addEventListener('paste', (event) => {
