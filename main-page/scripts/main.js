@@ -277,51 +277,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputs = document.querySelectorAll('.code-input');
     const submitButton = document.querySelector('.md-text-2');
     const targetElement = document.querySelector('.page-main');
-    
+
     // Lấy phần tử âm thanh lỗi và âm thanh thành công
-    const errorSound = document.getElementById('errorSound'); 
-    const successSound = document.getElementById('successSound'); // THÊM
+    const errorSound = document.getElementById('errorSound');
+    const successSound = document.getElementById('successSound');
 
     // Hàm Thu thập Mã từ các ô input
     const getEnteredCode = () => {
         return Array.from(inputs).map(input => input.value).join('').toUpperCase();
     };
-    
+
     // Hàm Phát Âm thanh Lỗi
     const playErrorSound = () => {
         if (errorSound) {
-            errorSound.currentTime = 0; 
+            errorSound.currentTime = 0;
             errorSound.play().catch(error => {
                 console.warn("Không thể phát âm thanh lỗi: ", error);
             });
         }
     };
-    
-    // THÊM: Hàm Phát Âm thanh Thành công
+
+    // Hàm Phát Âm thanh Thành công
     const playSuccessSound = () => {
         if (successSound) {
-            successSound.currentTime = 0; 
+            successSound.currentTime = 0;
             successSound.play().catch(error => {
                 console.warn("Không thể phát âm thanh thành công: ", error);
             });
         }
     };
 
-    // Hàm Xóa Lỗi và thông báo
+    // Hàm Xóa Lỗi và thông báo (Xóa class 'active' và 'active-1')
     const removeErrorClass = () => {
         otpContainer.classList.remove('active');
+        otpContainer.classList.remove('active-1');
     };
 
-    // Hàm Thêm Lỗi, xóa mã và focus lại
+    // Hàm Thêm Lỗi, xóa mã và focus lại (Chỉ dùng cho MÃ SAI)
     const addErrorClass = () => {
-        otpContainer.classList.add('active');
+        otpContainer.classList.add('active'); // Thêm class lỗi
+        otpContainer.classList.remove('active-1'); // Đảm bảo class thành công bị xóa
         inputs.forEach(input => input.value = '');
         inputs[0].focus();
-        playErrorSound(); 
+        // ⭐️ CHỈ PHÁT ÂM THANH LỖI TẠI ĐÂY
+        playErrorSound();
     };
+
+    // Hàm Thêm Class Đúng (Chỉ dùng cho MÃ ĐÚNG)
     const addRightClass = () => {
+        // Thêm class thành công
         otpContainer.classList.add('active-1');
-        playErrorSound(); 
+        // ❌ ĐÃ XÓA: playErrorSound(); 
+        // Lệnh gọi playErrorSound() ở đây là nguyên nhân gây ra lỗi.
+        otpContainer.classList.remove('active'); // Đảm bảo class lỗi bị xóa
     };
 
     // --- Hàm Logic Xác nhận (ĐÃ CẬP NHẬT) ---
@@ -340,27 +348,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (VALID_CODES.includes(enteredCode)) {
             // MÃ ĐÚNG:
             removeErrorClass();
-            addRightClass();
-            
-            // ⭐️ HÀNH ĐỘNG 2: PHÁT ÂM THANH THÀNH CÔNG
-            playSuccessSound(); 
-            
+            addRightClass(); // Thêm class 'active-1' cho CSS hiệu ứng
+
+            // ⭐️ PHÁT ÂM THANH THÀNH CÔNG RÕ RÀNG TẠI ĐÂY
+            playSuccessSound();
+
             // HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
             if (targetElement) {
-              setTimeout(() => {
-                targetElement.classList.add('page-exit');
-            }, 2000);
-                
+                setTimeout(() => {
+                    targetElement.classList.add('page-exit');
+                }, 2000);
             }
 
-            // Chờ hiệu ứng chạy xong rồi chuyển hướng (0.5 giây)
+            // Chờ hiệu ứng chạy xong rồi chuyển hướng (2.5 giây)
             setTimeout(() => {
                 window.location.replace(NEXT_PAGE_URL);
             }, 2500);
 
         } else {
             // MÃ SAI
-            addErrorClass();
+            addErrorClass(); // Hàm này đã bao gồm lệnh gọi playErrorSound()
         }
     };
 
@@ -368,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach((input, index) => {
         // Tự động chuyển tiếp khi nhập xong 1 ký tự
         input.addEventListener('input', () => {
-            removeErrorClass(); 
+            removeErrorClass();
             if (input.value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
@@ -376,11 +383,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Tự động quay lại khi nhấn Backspace
         input.addEventListener('keydown', (event) => {
-            if ((event.key === 'Backspace' || event.key === 8) && input.value.length === 0 && index > 0) {
+            // Kiểm tra phím Backspace hoặc key code 8 (deprecated)
+            if ((event.key === 'Backspace' || event.keyCode === 8) && input.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();
             }
-            console.log(event.key);
-            if (event.key === 'Enter' || event.key === 13) {
+
+            // Kiểm tra phím Enter hoặc key code 13 (deprecated)
+            if (event.key === 'Enter' || event.keyCode === 13) {
                 handleSubmission(event);
             }
         });
@@ -391,8 +400,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (submitButton) {
         submitButton.addEventListener('click', handleSubmission);
     }
-});
 
+    // Focus vào ô đầu tiên khi trang tải xong
+    if (inputs.length > 0) {
+        inputs[0].focus();
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.page-step-2 .md-row'); // Lấy container cha
