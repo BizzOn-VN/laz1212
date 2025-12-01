@@ -97,6 +97,9 @@ document.querySelectorAll(".cursor-box").forEach(box => {
 const parent = document.getElementById("pr-cursor-box");
 const children = document.querySelectorAll(".cursor-box");
 
+// *** KHỞI TẠO BIẾN ĐẾM CLICK VÀ BIẾN LƯU TRỮ ***
+let clickCount = 0;
+let lastClickedChild = null; 
 
 // =======================================================
 // === 1. XỬ LÝ LỰA CHỌN (CLICK VÀO CURSOR-BOX) ===
@@ -104,16 +107,55 @@ const children = document.querySelectorAll(".cursor-box");
 
 children.forEach(child => {
     child.addEventListener("click", () => {
-
-        // --- Logic Xử lý Phần tử CHA ---
-        parent.classList.remove("active-1", "active-2", "active-3", "active-4");
-        const activeName = child.getAttribute("data-active");
-        parent.classList.add(activeName);
-
-        // --- Logic Xử lý Phần tử CON (THÊM class 'active' vào phần tử được chọn) ---
         
-        // 1. Xoá class 'active' khỏi TẤT CẢ các div con khác
-    
+        // ----------------------------------------------------
+        // === LOGIC XÓA ACTIVE CŨ VÀ ĐẶT LẠI KHI CLICK KHÁC DIV ===
+        // ----------------------------------------------------
+        // 1. Kiểm tra: Nếu lần click hiện tại KHÁC với phần tử con đã click trước đó
+        if (child !== lastClickedChild) {
+            
+            // Nếu có phần tử đã được lưu trữ (tức là đã click vào một cái khác)
+            if (lastClickedChild !== null) {
+                // Xóa class 'active' khỏi phần tử đã click trước đó
+                lastClickedChild.classList.remove("active");
+            }
+            
+            // Đặt lại biến đếm
+            clickCount = 0;
+            // Cập nhật phần tử con đã click
+            lastClickedChild = child;
+        }
+
+        // Tăng biến đếm sau mỗi lần click
+        clickCount++;
+
+        // --- Logic Xử lý CHỈ CHẠY khi clickCount >= 2 ---
+        // (Khi click 2 lần liên tiếp vào CÙNG 1 phần tử)
+        if (clickCount >= 2) {
+            
+            // --- Logic Xử lý Phần tử CHA ---
+            parent.classList.remove("active-1", "active-2", "active-3", "active-4");
+            const activeName = child.getAttribute("data-active");
+            parent.classList.add(activeName);
+
+            // --- Logic Xử lý Phần tử CON ---
+            
+            // (1. Xoá class 'active' khỏi TẤT CẢ các div con khác - Đã được đảm bảo bằng logic bên trên, nhưng giữ lại để phòng trường hợp có nhiều hơn 1 active)
+            children.forEach(c => {
+                 // Chỉ xóa class active khỏi những phần tử không phải là phần tử hiện tại
+                if (c !== child) {
+                    c.classList.remove("active");
+                }
+            });
+
+            // 2. Thêm class 'active' vào phần tử con vừa được click
+            child.classList.add("active");
+
+            // *** ĐẶT LẠI BIẾN ĐẾM VÀ BIẾN LƯU TRỮ ***
+            clickCount = 0;
+            lastClickedChild = child; // Giữ lại phần tử này để nó bị xóa ở lần chọn KHÁC tiếp theo
+        }
+        
     });
 });
 
@@ -317,92 +359,114 @@ document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.page-step-2 .md-row'); // Lấy container cha
   const allCols = document.querySelectorAll('.page-step-2 .md-col');
   
-  allCols.forEach(hoveredCol => {
-    // Lấy tên class định danh của cột đang được hover (ví dụ: 'col-A')
+  allCols.forEach(clickedCol => {
+    // Lấy tên class định danh của cột đang được click (ví dụ: 'md-col-A')
     // và chuyển thành tên class điều khiển (ví dụ: 'hovering-on-A')
-    const colName = Array.from(hoveredCol.classList).find(c => c.startsWith('md-col-'));
+    const colName = Array.from(clickedCol.classList).find(c => c.startsWith('md-col-'));
     const controlClass = colName ? colName.replace('md-col-', 'hovering-on-') : '';
 
-    // --- Xử lý khi chuột đi vào (mouseenter) ---
-    hoveredCol.addEventListener('mouseenter', function() {
+    // --- Xử lý khi chuột click (click) ---
+    clickedCol.addEventListener('click', function() {
       if (controlClass) {
-        // Thêm class điều khiển vào container cha
+        // 1. Xóa TẤT CẢ các class 'hovering-on-*' hiện có trên container
+        //    Đây là bước quan trọng để đảm bảo chỉ có một class được thêm vào
+        removeAllHoveringClasses(container);
+
+        // 2. Thêm class điều khiển mới vào container cha
         container.classList.add(controlClass); 
       }
     });
-
-    // --- Xử lý khi chuột đi ra (mouseleave) ---
-    hoveredCol.addEventListener('mouseleave', function() {
-      if (controlClass) {
-        // Xóa class điều khiển khỏi container cha
-        container.classList.remove(controlClass); 
-      }
-    });
   });
+
+  /**
+   * Hàm hỗ trợ xóa tất cả các class bắt đầu bằng 'hovering-on-'
+   * khỏi một phần tử.
+   */
+  function removeAllHoveringClasses(element) {
+    // Chuyển ClassList thành Array để có thể lặp qua và xóa
+    const classesToRemove = Array.from(element.classList).filter(className => 
+      className.startsWith('hovering-on-')
+    );
+    
+    classesToRemove.forEach(className => {
+      element.classList.remove(className);
+    });
+  }
 });
 
 
 new WOW().init();
 
 $(document).ready(function() {
-    $('.md-col').on('click', function() {
-        const $clickedElement = $(this);
-        const $targetProduct = $('.md-product'); // Mục tiêu để thêm class
-        const cursor = document.querySelector('.md-cursor');
-        const btn_cf = document.querySelector('.btn-cf');
-        const customcursor = document.querySelector('.custom-cursor');
-        const md_text_3 = document.querySelector('.md-text-3');
-        const ico_3 = document.querySelector('.img-ico-3');
-        document.addEventListener('click', () => {
-              md_text_3.classList.add('active-title');
-            });
-        // 1. Kiểm tra xem đã có 'product' chưa (Tức là Click 3 trở đi)
-        if ($targetProduct.hasClass('product')) {
-            // TRƯỜNG HỢP 3: Đã có 'product' -> Thêm 'active-product'
-            
-            console.log('Click Lần 3: Đang thêm class "active-product"');
-            $targetProduct.addClass('active-product');
+    $('.md-row').on('click', function(){
+        const $clickedElementRow = $('.md-row');
+        if ($clickedElementRow.is('.active-1, .active-2, .active-3, .active-4')){
+            $('.md-col').on('click', function() {
 
-            // Tùy chọn: Reset tất cả trạng thái nếu muốn bắt đầu lại chu trình
-            // $clickedElement.removeClass('active-child');
-            // $targetProduct.removeClass('product active-product'); 
-            
-        } 
-        
-        // 2. Kiểm tra xem đã có 'active-child' chưa (Tức là Click 2)
-        else if ($clickedElement.hasClass('active-child')) {
-            // TRƯỜNG HỢP 2: Đã có 'active-child' nhưng chưa có 'product' -> Thêm 'product'
-            
-            console.log('Click Lần 2: Đang thêm class "product"');
-            $targetProduct.addClass('active-product');
-            btn_cf.classList.add('active-btncf');
-            document.addEventListener('click', () => {
-              cursor.classList.add('active');
-              
-            });
-            document.addEventListener('click', () => {
-              ico_3.classList.add('active-ico');
-              
-            });
-            
-            $clickedElement.addClass('active-none');
-            document.addEventListener('click', () => {
-              setTimeout(() => {
-                customcursor.classList.add('active-custom');
-            }, 500);
-            });
+            const $clickedElement = $(this);
+            const $targetProduct = $('.md-product'); // Mục tiêu để thêm class
+            const cursor = document.querySelector('.md-cursor');
+            const btn_cf = document.querySelector('.btn-cf');
+            const customcursor = document.querySelector('.custom-cursor');
+            const md_text_3 = document.querySelector('.md-text-3');
+            const ico_3 = document.querySelector('.img-ico-3');
 
+            document.addEventListener('click', () => {
+                      md_text_3.classList.add('active-title');
+                    });
+                // 1. Kiểm tra xem đã có 'product' chưa (Tức là Click 3 trở đi)
+                if ($targetProduct.hasClass('product')) {
+                    // TRƯỜNG HỢP 3: Đã có 'product' -> Thêm 'active-product'
+                    
+                    console.log('Click Lần 3: Đang thêm class "active-product"');
+                    $targetProduct.addClass('active-product');
 
-        } 
-        
-        // 3. Nếu không có cả hai (Tức là Click 1)
-        else {
-            // TRƯỜNG HỢP 1: Chưa có gì -> Thêm 'active-child'
+                    // Tùy chọn: Reset tất cả trạng thái nếu muốn bắt đầu lại chu trình
+                    // $clickedElement.removeClass('active-child');
+                    // $targetProduct.removeClass('product active-product'); 
+                    
+                } 
+                
+                // 2. Kiểm tra xem đã có 'active-child' chưa (Tức là Click 2)
+                // else if ($clickedElement.hasClass('active-child')) {
+                //     // TRƯỜNG HỢP 2: Đã có 'active-child' nhưng chưa có 'product' -> Thêm 'product'
+                    
+                //     console.log('Click Lần 2: Đang thêm class "product"');
+                    
+
+                // } 
+                
+                // 3. Nếu không có cả hai (Tức là Click 1)
+                else {
+                    // TRƯỜNG HỢP 1: Chưa có gì -> Thêm 'active-child'
+                    
+                    $targetProduct.addClass('active-product');
+                    btn_cf.classList.add('active-btncf');
+                    document.addEventListener('click', () => {
+                      cursor.classList.add('active');
+                      
+                    });
+                    document.addEventListener('click', () => {
+                      ico_3.classList.add('active-ico');
+                      
+                    });
+                    
+                    $clickedElement.addClass('active-none');
+                    document.addEventListener('click', () => {
+                      setTimeout(() => {
+                        customcursor.classList.add('active-custom');
+                    }, 500);
+                    });
+
+                    $clickedElement.addClass('active-child');
+                }
             
-            console.log('Click Lần 1: Đang thêm class "active-child"');
-            $clickedElement.addClass('active-child');
+        });
         }
     });
+
+    
+    
 });
 
 // 1. Lấy tất cả các thẻ hình ảnh bạn muốn thay đổi
