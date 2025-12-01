@@ -99,7 +99,7 @@ const children = document.querySelectorAll(".cursor-box");
 
 // *** KHỞI TẠO BIẾN ĐẾM CLICK VÀ BIẾN LƯU TRỮ ***
 let clickCount = 0;
-let lastClickedChild = null; 
+let lastClickedChild = null;
 
 // =======================================================
 // === 1. XỬ LÝ LỰA CHỌN (CLICK VÀO CURSOR-BOX) ===
@@ -107,19 +107,19 @@ let lastClickedChild = null;
 
 children.forEach(child => {
     child.addEventListener("click", () => {
-        
+
         // ----------------------------------------------------
         // === LOGIC XÓA ACTIVE CŨ VÀ ĐẶT LẠI KHI CLICK KHÁC DIV ===
         // ----------------------------------------------------
         // 1. Kiểm tra: Nếu lần click hiện tại KHÁC với phần tử con đã click trước đó
         if (child !== lastClickedChild) {
-            
+
             // Nếu có phần tử đã được lưu trữ (tức là đã click vào một cái khác)
             if (lastClickedChild !== null) {
                 // Xóa class 'active' khỏi phần tử đã click trước đó
                 lastClickedChild.classList.remove("active");
             }
-            
+
             // Đặt lại biến đếm
             clickCount = 0;
             // Cập nhật phần tử con đã click
@@ -129,33 +129,66 @@ children.forEach(child => {
         // Tăng biến đếm sau mỗi lần click
         clickCount++;
 
-        // --- Logic Xử lý CHỈ CHẠY khi clickCount >= 2 ---
-        // (Khi click 2 lần liên tiếp vào CÙNG 1 phần tử)
-        if (clickCount >= 2) {
-            
-            // --- Logic Xử lý Phần tử CHA ---
+        // ***************************************************************
+        // *** ĐIỀU KIỆN MỚI: CHỈ XỬ LÝ LƯU CHỌN KHI MÀN HÌNH >= 768px ***
+        // ***************************************************************
+        if (window.innerWidth >= 768) {
+             // --- Logic Xử lý CHỈ CHẠY khi clickCount >= 2 ---
+             // (Khi click 2 lần liên tiếp vào CÙNG 1 phần tử)
+            if (clickCount >= 2) {
+
+                // --- Logic Xử lý Phần tử CHA ---
+                parent.classList.remove("active-1", "active-2", "active-3", "active-4");
+                const activeName = child.getAttribute("data-active");
+                parent.classList.add(activeName);
+
+                // --- Logic Xử lý Phần tử CON ---
+
+                // (1. Xoá class 'active' khỏi TẤT CẢ các div con khác)
+                children.forEach(c => {
+                     // Chỉ xóa class active khỏi những phần tử không phải là phần tử hiện tại
+                    if (c !== child) {
+                        c.classList.remove("active");
+                    }
+                });
+
+                // 2. Thêm class 'active' vào phần tử con vừa được click
+                child.classList.add("active");
+
+                // *** ĐẶT LẠI BIẾN ĐẾM VÀ BIẾN LƯU TRỮ ***
+                clickCount = 0;
+                lastClickedChild = child; // Giữ lại phần tử này để nó bị xóa ở lần chọn KHÁC tiếp theo
+            }
+        } else {
+            // *****************************************************************
+            // *** XỬ LÝ CHO MÀN HÌNH < 768px (Click ĐƠN giản, không cần đếm) ***
+            // *****************************************************************
+
+            // Trên màn hình nhỏ, giả sử bạn muốn click 1 lần là áp dụng luôn.
+            // Để đảm bảo logic `clickCount >= 2` KHÔNG được áp dụng,
+            // ta chỉ cần đảm bảo rằng **nếu màn hình nhỏ, ta phải thêm class 'active'
+            // và áp dụng cho parent ngay lập tức** (vì logic `clickCount >= 2`
+            // sẽ không được chạy).
+
+            // Đặt lại biến đếm (vì logic clickCount là vô nghĩa trên màn hình nhỏ)
+            clickCount = 0;
+            lastClickedChild = child; // Cập nhật phần tử cuối cùng
+
+            // **ÁP DỤNG KHI CLICK ĐƠN TRÊN MÀN HÌNH NHỎ (DƯỚI 768px)**
+            // Logic này phải là hành vi mong muốn khi chỉ cần 1 click trên màn hình nhỏ
             parent.classList.remove("active-1", "active-2", "active-3", "active-4");
             const activeName = child.getAttribute("data-active");
             parent.classList.add(activeName);
 
-            // --- Logic Xử lý Phần tử CON ---
-            
-            // (1. Xoá class 'active' khỏi TẤT CẢ các div con khác - Đã được đảm bảo bằng logic bên trên, nhưng giữ lại để phòng trường hợp có nhiều hơn 1 active)
             children.forEach(c => {
-                 // Chỉ xóa class active khỏi những phần tử không phải là phần tử hiện tại
+                 // Xóa class active khỏi những phần tử không phải là phần tử hiện tại
                 if (c !== child) {
                     c.classList.remove("active");
                 }
             });
 
-            // 2. Thêm class 'active' vào phần tử con vừa được click
             child.classList.add("active");
-
-            // *** ĐẶT LẠI BIẾN ĐẾM VÀ BIẾN LƯU TRỮ ***
-            clickCount = 0;
-            lastClickedChild = child; // Giữ lại phần tử này để nó bị xóa ở lần chọn KHÁC tiếp theo
         }
-        
     });
 });
 
