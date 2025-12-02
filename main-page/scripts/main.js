@@ -587,3 +587,20 @@ $(document).ready(function() {
     });
 });
 // Đợi cho toàn bộ nội dung HTML được tải xong
+
+  // Chờ cho toàn bộ cấu trúc HTML được tải xong
+  document.addEventListener('DOMContentLoaded', function() {
+    // Đặt hàm setTimeout để chờ 2 giây (2000 miligiây) trước khi cuộn
+    setTimeout(function() {
+      // 1. Lấy tham chiếu đến phần tử mục tiêu
+      const targetDiv = document.getElementById('btn-button');
+      
+      // 2. Cuộn đến phần tử đó
+      if (targetDiv) {
+        targetDiv.scrollIntoView({
+          behavior: 'smooth', // Cuộn mượt mà
+          block: 'start'      // Căn chỉnh mép trên phần tử với mép trên màn hình
+        });
+      }
+    }, 2000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
+  });

@@ -225,6 +225,12 @@ img{
 }
 .page-step-2 .md-text-3{
   position: absolute;
+  left: 23%;
+  top: 7.5%;
+    width: 54%;
+}
+.page-dientu .md-text-3{
+  position: absolute;
       left: 22%;
     top: 5.5%;
     width: 55.5%;
@@ -303,9 +309,12 @@ img{
   z-index: 2;
 }
 .page-step-2 .md-row .md-col-1 .sp-1{
-  margin-top: -31%;
   position: relative;
   z-index: 1;
+  margin-top: -31%;
+}
+.page-dientu .md-row .md-col-1 .sp-1{
+  margin-top: 0%;
 }
 .page-step-2 .md-row .md-col-2 .md-sp-2{
   width: 41%;
@@ -937,7 +946,7 @@ img{
   font-weight: 600;
 }
 .btn-cf a{
-  display: inline-block;
+  display: block;
 }
 .btn-cf a:hover{
   transform: scale(1.1) !important;
@@ -959,7 +968,7 @@ img{
   position: absolute;
     left: 50%;
     top: 10.5%;
-    font-size: 2vw;
+    font-size: 1.9vw;
     transform: translateX(-50%);
     z-index: 5;
     width: 100%;
@@ -1512,10 +1521,14 @@ img{
         width: 150%;
   }
 }
+.page-step-2 .md-row{
+  animation: none;
+  opacity: 1;
+}
 
 .page-dientu .md-row .md-col-1{
   left: 28.5%;
-    top: 37.5%;
+    top: 26%;
     width: 44.5%;
     margin-top: 0%;
     cursor: auto;
@@ -1533,4 +1546,53 @@ img{
   font-size: 3vw;
   line-height: 1.2;
   width: 100%;
+}
+.page-thoitrang .md-row .md-col-1{
+  left: 35.5%;
+    top: 21%;
+    width: 29.5%;
+}
+.page-giadung .md-row .md-col-1{
+  left: 35.5%;
+    top: 13%;
+    width: 29.5%;
+}
+@media screen and (max-width: 767px){
+      .page-dientu .md-text-3 {
+        position: absolute;
+        left: 10%;
+        width: 78%;
+        top: 9%;
+    }
+    .page-dientu .md-text-3 .md-title{
+      font-size: 4vw;
+    }
+    .page-dientu .img-ico-3{
+      left: 29%;
+      top: 22%;
+      width: 44%;
+    }
+    .btn-cf{
+      left: 26%;
+        width: 49%;
+        top: 49%;
+    }
+    .page-dientu .md-row .md-col-1{
+      left: 19.5%;
+          top: 40%;
+          width: 61.5%;
+    }
+    .md-product{
+      top: 61%;
+    }
+    .page-thoitrang .md-row .md-col-1{
+      left: 29.5%;
+        top: 31.5%;
+        width: 40.5%;
+    }
+    .page-giadung .md-row .md-col-1{
+      left: 29.5%;
+        top: 23.5%;
+        width: 40.5%;
+    }
 }
