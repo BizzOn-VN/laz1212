@@ -1,58 +1,50 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Mobile</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background: #f0f2f5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        }
-        form {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        input {
-            width: 100%;
-            max-width: 400px;
-            padding: 18px 16px;
-            font-size: 20px;           /* quan trọng để iOS không tự zoom */
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        button {
-            width: 100%;
-            max-width: 400px;
-            padding: 18px;
-            font-size: 20px;
-            background: #1877f2;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-<form>
-    <input 
-        type="text" 
-        pattern="[A-Za-z0-9]*" 
-        placeholder="Nhập chữ và số"
-        autofocus>
-    <button type="submit">Gửi</button>
+<form action="">
+    <input type="text" maxlength="1" pattern="[0-9]*" class="code-input" data-index="0" autofocus />
+    <input type="text" maxlength="1" pattern="[0-9]*" class="code-input" data-index="1" />
+    <input type="text" maxlength="1" pattern="[0-9]*" class="code-input" data-index="2" />
+    <input type="text" maxlength="1" pattern="[0-9]*" class="code-input" data-index="3" />
+    <input type="text" maxlength="1" pattern="[A-Za-z0-9]*" class="code-input" data-index="4" />
+    <input type="text" maxlength="1" pattern="[A-Za-z0-9]*" class="code-input" data-index="5" />
+    <input type="text" maxlength="1" pattern="[A-Za-z0-9]*" class="code-input" data-index="6" />
+    <input type="text" maxlength="1" pattern="[A-Za-z0-9]*" class="code-input" data-index="7" />
 </form>
 
-</body>
-</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll(".code-input");
+
+    // Hàm tự động chuyển focus sang ô tiếp theo khi nhập đủ 1 ký tự
+    inputs.forEach((input, index) => {
+        input.addEventListener("input", function (e) {
+            const value = this.value.trim();
+
+            // Xử lý riêng ô thứ 5 (data-index="4")
+            if (this.dataset.index === "4") {
+                const isNumber = /^\d$/.test(value); // kiểm tra có phải là số không
+
+                // Thay đổi pattern cho 3 ô cuối (index 5,6,7)
+                for (let i = 5; i <= 7; i++) {
+                    if (isNumber) {
+                        inputs[i].pattern = "[0-9]*";
+                        inputs[i].value = ""; // xóa dữ liệu cũ nếu cần
+                    } else {
+                        inputs[i].pattern = "[A-Za-z0-9]*";
+                    }
+                }
+            }
+
+            // Tự động focus ô tiếp theo nếu đã nhập 1 ký tự
+            if (value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        });
+
+        // Cho phép quay lại ô trước bằng phím Backspace khi ô hiện tại rỗng
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" && this.value === "" && index > 0) {
+                inputs[index - 1].focus();
+            }
+        });
+    });
+});
+</script>
