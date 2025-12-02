@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach((input, index) => {
         
         // --- 1. Xử lý khi nhập liệu (Tự động chuyển tiếp) ---
-        input.addEventListener('input', (event) => {
+        /* input.addEventListener('input', (event) => {
             // Kiểm tra xem đã nhập ký tự nào chưa (maxlength="1" nên chỉ có 1 ký tự)
             if (input.value.length === 1 && index < inputs.length - 1) {
                 // Nếu không phải ô cuối cùng, chuyển focus sang ô tiếp theo
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Thực hiện hành động tiếp theo, ví dụ: gửi form
                 // submitOTP();
             }
-        });
+        }); */
         
         // --- 2. Xử lý khi nhấn Backspace/Delete (Tự động quay lại) ---
         /* input.addEventListener('keyup', (event) => {
@@ -277,59 +277,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputs = document.querySelectorAll('.code-input');
     const submitButton = document.querySelector('.md-text-2');
     const targetElement = document.querySelector('.page-main');
-
+    
     // Lấy phần tử âm thanh lỗi và âm thanh thành công
-    const errorSound = document.getElementById('errorSound');
-    const successSound = document.getElementById('successSound');
+    const errorSound = document.getElementById('errorSound'); 
+    const successSound = document.getElementById('successSound'); // THÊM
 
     // Hàm Thu thập Mã từ các ô input
     const getEnteredCode = () => {
         return Array.from(inputs).map(input => input.value).join('').toUpperCase();
     };
-
+    
     // Hàm Phát Âm thanh Lỗi
     const playErrorSound = () => {
         if (errorSound) {
-            errorSound.currentTime = 0;
+            errorSound.currentTime = 0; 
             errorSound.play().catch(error => {
                 console.warn("Không thể phát âm thanh lỗi: ", error);
             });
         }
     };
-
-    // Hàm Phát Âm thanh Thành công
+    
+    // THÊM: Hàm Phát Âm thanh Thành công
     const playSuccessSound = () => {
         if (successSound) {
-            successSound.currentTime = 0;
+            successSound.currentTime = 0; 
             successSound.play().catch(error => {
                 console.warn("Không thể phát âm thanh thành công: ", error);
             });
         }
     };
 
-    // Hàm Xóa Lỗi và thông báo (Xóa class 'active' và 'active-1')
+    // Hàm Xóa Lỗi và thông báo
     const removeErrorClass = () => {
         otpContainer.classList.remove('active');
-        otpContainer.classList.remove('active-1');
     };
 
-    // Hàm Thêm Lỗi, xóa mã và focus lại (Chỉ dùng cho MÃ SAI)
+    // Hàm Thêm Lỗi, xóa mã và focus lại
     const addErrorClass = () => {
-        otpContainer.classList.add('active'); // Thêm class lỗi
-        otpContainer.classList.remove('active-1'); // Đảm bảo class thành công bị xóa
+        otpContainer.classList.add('active');
         inputs.forEach(input => input.value = '');
         inputs[0].focus();
-        // ⭐️ CHỈ PHÁT ÂM THANH LỖI TẠI ĐÂY
-        playErrorSound();
+        playErrorSound(); 
     };
-
-    // Hàm Thêm Class Đúng (Chỉ dùng cho MÃ ĐÚNG)
     const addRightClass = () => {
-        // Thêm class thành công
         otpContainer.classList.add('active-1');
-        // ❌ ĐÃ XÓA: playErrorSound(); 
-        // Lệnh gọi playErrorSound() ở đây là nguyên nhân gây ra lỗi.
-        otpContainer.classList.remove('active'); // Đảm bảo class lỗi bị xóa
+        playErrorSound(); 
     };
 
     // --- Hàm Logic Xác nhận (ĐÃ CẬP NHẬT) ---
@@ -348,26 +340,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (VALID_CODES.includes(enteredCode)) {
             // MÃ ĐÚNG:
             removeErrorClass();
-            addRightClass(); // Thêm class 'active-1' cho CSS hiệu ứng
-
-            // ⭐️ PHÁT ÂM THANH THÀNH CÔNG RÕ RÀNG TẠI ĐÂY
-            playSuccessSound();
-
+            addRightClass();
+            
+            // ⭐️ HÀNH ĐỘNG 2: PHÁT ÂM THANH THÀNH CÔNG
+            playSuccessSound(); 
+            
             // HÀNH ĐỘNG 1: Thêm class vào body để kích hoạt hiệu ứng đóng trang
             if (targetElement) {
-                setTimeout(() => {
-                    targetElement.classList.add('page-exit');
-                }, 2000);
+              setTimeout(() => {
+                targetElement.classList.add('page-exit');
+            }, 1000);
+                
             }
 
-            // Chờ hiệu ứng chạy xong rồi chuyển hướng (2.5 giây)
+            // Chờ hiệu ứng chạy xong rồi chuyển hướng (0.5 giây)
             setTimeout(() => {
                 window.location.replace(NEXT_PAGE_URL);
-            }, 2500);
+            }, 1500);
 
         } else {
             // MÃ SAI
-            addErrorClass(); // Hàm này đã bao gồm lệnh gọi playErrorSound()
+            addErrorClass();
         }
     };
 
@@ -375,7 +368,21 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach((input, index) => {
         // Tự động chuyển tiếp khi nhập xong 1 ký tự
         input.addEventListener('input', () => {
+            if (index == 4) {
+                let code5 = inputs[index].value;
+                if (isNaN(code5)) {
+                    // console.log('chữ');
+                    changeInputsToNumber("text");
+                } else {
+                    // console.log('số');
+                    changeInputsToNumber("number");
+                }
+            } else {
+                
+            }
+
             removeErrorClass();
+            
             if (input.value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
@@ -383,29 +390,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Tự động quay lại khi nhấn Backspace
         input.addEventListener('keydown', (event) => {
-            // Kiểm tra phím Backspace hoặc key code 8 (deprecated)
-            if ((event.key === 'Backspace' || event.keyCode === 8) && input.value.length === 0 && index > 0) {
+            if ((event.key === 'Backspace' || event.key === 8) && input.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();
             }
-
-            // Kiểm tra phím Enter hoặc key code 13 (deprecated)
-            if (event.key === 'Enter' || event.keyCode === 13) {
+            console.log(event.key);
+            if (event.key === 'Enter' || event.key === 13) {
                 handleSubmission(event);
             }
         });
 
     });
 
+    //
+    const changeInputsToNumber = (type) => {
+        console.log(type);
+        inputs.forEach((input, index) => {
+            if (index >= 5) {
+                if(type == "number") {
+                    input.setAttribute('pattern', "[0-9]*")
+                } else {
+                    input.setAttribute('pattern', "[A-Za-z0-9]*")
+                }
+            }
+        })
+    }
+
     // Gắn sự kiện cho Nút Xác Nhận
     if (submitButton) {
         submitButton.addEventListener('click', handleSubmission);
     }
-
-    // Focus vào ô đầu tiên khi trang tải xong
-    if (inputs.length > 0) {
-        inputs[0].focus();
-    }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.page-step-2 .md-row'); // Lấy container cha
@@ -449,130 +464,126 @@ document.addEventListener('DOMContentLoaded', function() {
 
 new WOW().init();
 
-$(document).ready(function() {
-    $('.md-row').on('click', function(){
-        const $clickedElementRow = $('.md-row');
-        if ($clickedElementRow.is('.active-1, .active-2, .active-3, .active-4')){
-            $('.md-col').on('click', function() {
+// $(document).ready(function() {
+//     $('.md-row').on('click', function(){
+//         const $clickedElementRow = $('.md-row');
+//         if ($clickedElementRow.is('.active-1, .active-2, .active-3, .active-4')){
+//             $('.md-col').on('click', function() {
 
-            const $clickedElement = $(this);
-            const $targetProduct = $('.md-product'); // Mục tiêu để thêm class
-            const cursor = document.querySelector('.md-cursor');
-            const btn_cf = document.querySelector('.btn-cf');
-            const customcursor = document.querySelector('.custom-cursor');
-            const md_text_3 = document.querySelector('.md-text-3');
-            const ico_3 = document.querySelector('.img-ico-3');
-
-            document.addEventListener('click', () => {
-                      md_text_3.classList.add('active-title');
-                    });
-                // 1. Kiểm tra xem đã có 'product' chưa (Tức là Click 3 trở đi)
-                if ($targetProduct.hasClass('product')) {
-                    // TRƯỜNG HỢP 3: Đã có 'product' -> Thêm 'active-product'
+//             const $clickedElement = $(this);
+//             const $targetProduct = $('.md-product'); // Mục tiêu để thêm class
+//             const cursor = document.querySelector('.md-cursor');
+//             const btn_cf = document.querySelector('.btn-cf');
+//             const customcursor = document.querySelector('.custom-cursor');
+//             const md_text_3 = document.querySelector('.md-text-3');
+//             const ico_3 = document.querySelector('.img-ico-3');
+//             document.addEventListener('click', () => {
+//                       md_text_3.classList.add('active-title');
+//                     });
+//                 // 1. Kiểm tra xem đã có 'product' chưa (Tức là Click 3 trở đi)
+//                 if ($targetProduct.hasClass('product')) {
+//                     // TRƯỜNG HỢP 3: Đã có 'product' -> Thêm 'active-product'
                     
-                    console.log('Click Lần 3: Đang thêm class "active-product"');
-                    $targetProduct.addClass('active-product');
+//                     console.log('Click Lần 3: Đang thêm class "active-product"');
+//                     $targetProduct.addClass('active-product');
 
-                    // Tùy chọn: Reset tất cả trạng thái nếu muốn bắt đầu lại chu trình
-                    // $clickedElement.removeClass('active-child');
-                    // $targetProduct.removeClass('product active-product'); 
+//                     // Tùy chọn: Reset tất cả trạng thái nếu muốn bắt đầu lại chu trình
+//                     // $clickedElement.removeClass('active-child');
+//                     // $targetProduct.removeClass('product active-product'); 
                     
-                } 
+//                 } 
                 
-                // 2. Kiểm tra xem đã có 'active-child' chưa (Tức là Click 2)
-                // else if ($clickedElement.hasClass('active-child')) {
-                //     // TRƯỜNG HỢP 2: Đã có 'active-child' nhưng chưa có 'product' -> Thêm 'product'
+//                 // 2. Kiểm tra xem đã có 'active-child' chưa (Tức là Click 2)
+//                 // else if ($clickedElement.hasClass('active-child')) {
+//                 //     // TRƯỜNG HỢP 2: Đã có 'active-child' nhưng chưa có 'product' -> Thêm 'product'
                     
-                //     console.log('Click Lần 2: Đang thêm class "product"');
+//                 //     console.log('Click Lần 2: Đang thêm class "product"');
                     
 
-                // } 
+//                 // } 
                 
-                // 3. Nếu không có cả hai (Tức là Click 1)
-                else {
-                    // TRƯỜNG HỢP 1: Chưa có gì -> Thêm 'active-child'
+//                 // 3. Nếu không có cả hai (Tức là Click 1)
+//                 else {
+//                     // TRƯỜNG HỢP 1: Chưa có gì -> Thêm 'active-child'
                     
-                    $targetProduct.addClass('active-product');
-                    btn_cf.classList.add('active-btncf');
-                    document.addEventListener('click', () => {
-                      cursor.classList.add('active');
+//                     $targetProduct.addClass('active-product');
+//                     btn_cf.classList.add('active-btncf');
+//                     document.addEventListener('click', () => {
+//                       cursor.classList.add('active');
                       
-                    });
-                    document.addEventListener('click', () => {
-                      ico_3.classList.add('active-ico');
+//                     });
+//                     document.addEventListener('click', () => {
+//                       ico_3.classList.add('active-ico');
                       
-                    });
+//                     });
                     
-                    $clickedElement.addClass('active-none');
-                    document.addEventListener('click', () => {
-                      setTimeout(() => {
-                        customcursor.classList.add('active-custom');
-                    }, 500);
-                    });
+//                     $clickedElement.addClass('active-none');
+//                     document.addEventListener('click', () => {
+//                       setTimeout(() => {
+//                         customcursor.classList.add('active-custom');
+//                     }, 500);
+//                     });
+                    
 
-                    $clickedElement.addClass('active-child');
-                }
+//                     $clickedElement.addClass('active-child');
+//                 }
             
-        });
-        }
-    });
+//         });
+//         }
+//     });
 
     
     
-});
+// });
 
-// 1. Lấy tất cả các thẻ hình ảnh bạn muốn thay đổi
-const headerText = document.getElementById('header-text');
-const title_sp = document.getElementById('title-sp');
-// Lấy 3 thẻ hình ảnh
-const img1 = document.getElementById('header-image-1');
-const img2 = document.getElementById('header-image-2');
-const img3 = document.getElementById('header-image-3');
 
-// 2. Lấy tất cả các vùng sản phẩm
-const productAreas = document.querySelectorAll('.md-col');
 
-// 3. Lặp qua từng vùng và thêm sự kiện click
-productAreas.forEach(area => {
-    area.addEventListener('click', function() {
-        
-        // --- Lấy dữ liệu Text (giữ nguyên) ---
-        const title = this.getAttribute('data-title');
-        const name = this.getAttribute('data-product-name');
-        const price = this.getAttribute('data-product-price');
-        const sp = this.getAttribute('data-sp');
-        
-        // --- Lấy 3 URL hình ảnh mới ---
-        // Ví dụ: <div data-img-url-1="hinh1.jpg" ...>
-        const url1 = this.getAttribute('data-img-url-1');
-        const url2 = this.getAttribute('data-img-url-2');
-        const url3 = this.getAttribute('data-img-url-3');
-        
-        
-        // --- Thay đổi Text ---
-        const finalHtml = title + '<br>' + name + '<br>' + price;
-        const finaltitle = sp;
-        
-        if (headerText) {
-            headerText.innerHTML = finalHtml;
-        }
+$(document).ready(function() {
 
-        if (title_sp) {
-            title_sp.innerHTML = finaltitle;
-        }
-        
-        // --- Thay đổi 3 Hình ảnh ---
-        // Kiểm tra xem thẻ có tồn tại và URL có tồn tại không trước khi gán
-        if (img1 && url1) {
-            img1.src = url1;
-        }
+    // Gán thời gian chờ (đơn vị: mili-giây). Ví dụ: 500ms = 0.5 giây
+    const DELAY_TIME = 1500; 
 
-        if (img2 && url2) {
-            img2.src = url2;
-        }
+    // Gắn sự kiện CLICK cho TẤT CẢ các cột có class 'md-col'
+    $('.md-col').on('click', function(e) {
         
-        if (img3 && url3) {
-            img3.src = url3;
-        }
+        // Lấy phần tử cha gần nhất có class 'md-row'
+        const $thisCol = $(this);
+        const $parentRow = $thisCol.closest('.md-row');
+        
+        // Kiểm tra xem .md-row có class active hợp lệ (active-1 đến active-4) không
+        const isActiveRow = $parentRow.hasClass('active-1') || 
+                            $parentRow.hasClass('active-2') ||
+                            $parentRow.hasClass('active-3') ||
+                            $parentRow.hasClass('active-4');
+        
+        // ----------------------------------------------------
+        
+        // CHỈ chuyển trang nếu đã có class active
+        if (isActiveRow) {
+            
+            // Lấy đường dẫn trang đích từ thuộc tính data-target của CỘT đang được click
+            const targetPage = $thisCol.data('target'); 
+            
+            // Kiểm tra đường dẫn có tồn tại không
+            if (targetPage) {
+                
+                // 1. (TÙY CHỌN) Thêm class hiệu ứng ngay lập tức
+                //    Ví dụ: Thêm class 'clicked' để cột sáng lên hoặc chớp tắt
+                // $thisCol.addClass('is-loading'); 
+                
+                console.log(`Đã kiểm tra class. Đang chờ ${DELAY_TIME}ms trước khi chuyển trang...`);
+
+                // 2. Sử dụng setTimeout để tạo độ trễ trước khi chuyển trang
+                setTimeout(function() {
+                    // Thực hiện chuyển hướng sau khi hết thời gian chờ
+                    window.location.href = targetPage;
+                }, DELAY_TIME); // Độ trễ được định nghĩa ở trên
+                
+            } else {
+                console.error("Lỗi: md-col đang thiếu thuộc tính data-target!");
+            }
+        } 
+        // Nếu không có class active, không làm gì cả.
     });
 });
+// Đợi cho toàn bộ nội dung HTML được tải xong
