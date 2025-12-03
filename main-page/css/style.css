@@ -1312,9 +1312,9 @@ img{
     font-size: 3.5vw;
   }
   .page-step-2 .md-row .md-col-1{
-    left: 7%;
+    left: 5%;
     top: 44%;
-    width: 42.5%;
+    width: 44.5%;
   }
   @keyframes movein-1{
     0%{
@@ -1344,9 +1344,9 @@ img{
     width: 47%;
   }
   .page-step-2 .md-row .md-col-2{
-    left: 30%;
+    left: 29%;
     top: 33%;
-    width: 36.5%;
+    width: 38.5%;
   }
   @keyframes movein-2{
     0%{
@@ -1373,9 +1373,9 @@ img{
     }
   }
   .page-step-2 .md-row .md-col-3{
-    right: 6%;
+    right: 9%;
     top: 38.5%;
-    width: 45%;
+    width: 39%;
   }
   @keyframes movein-3{
     0%{
@@ -1399,9 +1399,9 @@ img{
     }
   }
   .page-step-2 .md-row .md-col-4{
-    right: 23%;
+    right: 31%;
     top: 50%;
-    width: 52%;
+    width: 37%;
   }
   @keyframes movein-4{
     0%{
