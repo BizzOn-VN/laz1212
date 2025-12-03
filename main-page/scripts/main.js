@@ -607,6 +607,25 @@ $(document).ready(function() {
     }, 2000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
   });
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    // 1. Khung chứa cuộn của bạn
+    const container = document.getElementById('scrollContainer'); 
+    
+    // 2. Section 1 (Section ngay trước Section 2)
+    const section1 = document.getElementById('md-section-1');
+
+    if (container && section1) {
+        // 3. Tính toán vị trí cần cuộn đến.
+        // Đây chính là chiều cao của Section 1.
+        // offsetHeight bao gồm padding, border và chiều cao nội dung.
+        const scrollToPosition = section1.offsetHeight;
+        
+        // ➡️ GÁN TRỰC TIẾP GIÁ TRỊ SCROLLTOP 
+        // Lệnh này lập tức đặt container vào vị trí đó mà không kích hoạt sự kiện cuộn.
+        container.scrollTop = scrollToPosition;
+    }
+});
+
   function chonToanBo(element) {
         element.select();
     }

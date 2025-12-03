@@ -967,7 +967,7 @@ img{
 .md-product .title-product .md-title-sp{
   position: absolute;
     left: 50%;
-    top: 10.5%;
+    top: 6.5%;
     font-size: 1.9vw;
     transform: translateX(-50%);
     z-index: 5;
@@ -1052,13 +1052,35 @@ img{
   }
 }*/
 
-
-.md-product .product-1{
+.md-product .md-content{
   position: absolute;
-  left: 17%;
-      bottom: 15%;
-    width: 19%;
-  z-index: 9;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 22%;
+  width: 100%;
+  padding: 0px 10%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  height: 60%;
+  scroll-padding-top: 20%;
+}
+.md-product .md-content::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn */
+}
+.md-product .product-col-1{
+  display: flex;
+  scroll-snap-align: start;  /* 5. Chụp dính vào điểm bắt đầu (cạnh trên) */
+  
+  /* Ví dụ để dễ phân biệt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7%;
+  margin-top: 5%;
+  height: 85%;
+}
+.md-product .product-col-1 .product-1{
+  padding: 0px 5%;
 }
 .md-product .product-1 img{
   margin-bottom: 10px;
@@ -1238,6 +1260,9 @@ img{
   display: none;
 }
 @media screen and (max-width: 767px){
+  .md-product .product-col-1{
+    margin-bottom: 10%;
+  }
   .page-main .md-form .error{
     font-size: 2.5vw;
     top: 125%;
