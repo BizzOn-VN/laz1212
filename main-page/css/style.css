@@ -1516,9 +1516,9 @@ img{
 }
 @media screen and (max-width: 767px){
   .page-main .md-form .effect-img-2 {
-    left: -24%;
-        top: 25.5%;
-        width: 150%;
+    left: 0%;
+        top: 4%;
+        width: 100%;
   }
 }
 .page-dientu .md-row{
