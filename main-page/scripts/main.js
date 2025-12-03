@@ -402,17 +402,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //
-    const changeInputsToNumber = (type) => {
-        console.log(type);
-        inputs.forEach((input, index) => {
-            if (index >= 5) {
-                if(type == "number") {
-                    input.setAttribute('pattern', "[0-9]*")
-                } else {
-                    input.setAttribute('pattern', "[A-Za-z0-9]*")
-                }
-            }
-        })
+    const changeInputsToNumber = (type) => { 
+        console.log(type); 
+        inputs.forEach((input, index) => { 
+            if (index >= 5) { 
+                if(type == "number") { 
+                    input.type = "number"; 
+                    input.setAttribute('pattern', "[0-9]*") 
+                } else { 
+                    input.type = "text"; 
+                    input.setAttribute('pattern', "[A-Za-z0-9]*") 
+                } 
+            } 
+        }) 
     }
 
     // Gắn sự kiện cho Nút Xác Nhận

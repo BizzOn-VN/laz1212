@@ -1596,3 +1596,8 @@ img{
         width: 40.5%;
     }
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Loại bỏ giao diện mặc định của trình duyệt */
+    margin: 0; /* Đảm bảo không còn khoảng trống nào */
+}
