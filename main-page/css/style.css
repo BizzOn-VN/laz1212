@@ -1481,15 +1481,15 @@ img{
   width: 100%;
   z-index: 3;
 }
-.page-main .md-form .effect-img-2{
-  position: fixed;
+.page-main .effect-img-2{
+  position: absolute;
   left: 0%;
   top: 0%;
   width: 100%;
   z-index: 2;
   transform: scale(0.0);
 }
-.page-main .md-form.active-1 .effect-img-2{
+.page-main .effect-img-2.active-effect{
   animation: effect-img-2 1s;
   animation-fill-mode: forwards;
 }
@@ -1515,9 +1515,9 @@ img{
   }
 }
 @media screen and (max-width: 767px){
-  .page-main .md-form .effect-img-2 {
+  .page-main .effect-img-2 {
     left: 0%;
-        top: 4%;
+        top: 5%;
         width: 100%;
   }
 }
@@ -1583,7 +1583,7 @@ img{
           width: 61.5%;
     }
     .md-product{
-      top: 61%;
+      top: 62%;
     }
     .page-thoitrang .md-row .md-col-1{
       left: 29.5%;

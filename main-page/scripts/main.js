@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputs = document.querySelectorAll('.code-input');
     const submitButton = document.querySelector('.md-text-2');
     const targetElement = document.querySelector('.page-main');
-    
+    const effect_img = document.querySelector('.effect-img-2');
     // Lấy phần tử âm thanh lỗi và âm thanh thành công
     const errorSound = document.getElementById('errorSound'); 
     const successSound = document.getElementById('successSound'); // THÊM
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
                 
             }
-
+            effect_img.classList.add('active-effect');
             // Chờ hiệu ứng chạy xong rồi chuyển hướng (0.5 giây)
             setTimeout(() => {
                 window.location.replace(NEXT_PAGE_URL);
