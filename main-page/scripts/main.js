@@ -606,3 +606,7 @@ $(document).ready(function() {
       }
     }, 2000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
   });
+
+  function chonToanBo(element) {
+        element.select();
+    }
