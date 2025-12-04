@@ -1558,19 +1558,27 @@ img{
 .page-main .effect-img-2{
   position: absolute;
   left: 0%;
-  top: -40%;
+  top: 0%;
   width: 100%;
   z-index: 2;
   transform: scale(0.0);
 }
 .page-main .effect-img-2.active-effect{
-  animation: effect-img-2 1s;
+  animation: effect-img-2 2s;
   animation-fill-mode: forwards;
 }
 @keyframes effect-img-2{
   0%{
     transform: scale(0.0);
     opacity: 0;
+  }
+  10%{
+    transform: scale(1.0);
+    opacity: 1;
+  }
+  50%{
+    transform: scale(1.0);
+    opacity: 1;
   }
   100%{
     transform: scale(4.0);
@@ -1591,7 +1599,7 @@ img{
 @media screen and (max-width: 767px){
   .page-main .effect-img-2 {
     left: 0%;
-        top: -20%;
+        top: 5%;
         width: 100%;
   }
 }
