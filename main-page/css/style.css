@@ -364,14 +364,7 @@ img{
   top: 49%;
   width: 92%;
 }
-@media screen and (min-width: 768px){
-  .page-step-2 .md-row.hovering-on-4 .md-col-4{
-    transform: scale(1.4);
-    transition-duration: 0.5s;
-    animation: md-col-4 1s;
-    animation-fill-mode: forwards;
-    z-index: 3;
-  }
+  
   .page-step-2 .md-row.hovering-on-4 .md-col-1{
     animation: md-col-1 1s;
     animation-fill-mode: forwards;
@@ -385,10 +378,7 @@ img{
     animation-fill-mode: forwards;
     z-index: 2;
   }
-  .page-step-2 .md-row.hovering-on-2 .md-col-2{
-    transform: scale(1.4);
-    transition-duration: 0.5s;
-  }
+  
   .page-step-2 .md-row.hovering-on-2 .md-col-1{
     animation: md-col-1-2 1s;
     animation-fill-mode: forwards;
@@ -401,6 +391,17 @@ img{
     animation: md-col-4-2 1s;
     animation-fill-mode: forwards;
   }
+  .page-step-2 .md-row.hovering-on-4 .md-col-4{
+    transform: scale(1.4);
+    transition-duration: 0.5s;
+    animation: md-col-4 1s;
+    animation-fill-mode: forwards;
+    z-index: 3;
+  }
+  .page-step-2 .md-row.hovering-on-2 .md-col-2{
+    transform: scale(1.4);
+    transition-duration: 0.5s;
+  }
   .page-step-2 .md-row.hovering-on-1 .md-col-1{
      transform: scale(1.4);
     transition-duration: 0.5s;
@@ -409,7 +410,7 @@ img{
      transform: scale(1.4);
     transition-duration: 0.5s;
   }
-}
+
 @keyframes md-col-4{
   0%{
     top: 51%;
@@ -476,6 +477,88 @@ img{
     top: 55%;
   }
 }
+
+@media screen and (max-width: 767px){
+  
+  @keyframes md-col-1{
+    0%{
+      left: 5%;
+    }
+    100%{
+      left: 0%;
+    }
+  }
+
+  @keyframes md-col-2{
+    0%{
+      left: 29%;
+      top: 33%;
+    }
+    100%{
+      left: 24%;
+      top: 25%;
+    }
+  }
+
+  @keyframes md-col-3{
+    0%{
+      right: 9%;
+    }
+    100%{
+      right: 4%;
+    }
+  }
+  @keyframes md-col-1-2{
+    0%{
+      left: 5%;
+      top: 45%;
+    }
+    100%{
+      left: 0%;
+      top: 44%;
+    }
+  }
+
+  @keyframes md-col-3-2{
+    0%{
+      right: 9%;
+      top: 38.5%;
+    }
+    100%{
+      right: 4%;
+      top: 38.5%;
+    }
+  }
+
+  @keyframes md-col-4-2{
+    0%{
+      top: 50%;
+    }
+    100%{
+      top: 55%;
+    }
+  }
+  .page-step-2 .md-row.hovering-on-4 .md-col-4{
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+    animation: md-col-4 1s;
+    animation-fill-mode: forwards;
+    z-index: 3;
+  }
+  .page-step-2 .md-row.hovering-on-2 .md-col-2{
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+  }
+  .page-step-2 .md-row.hovering-on-1 .md-col-1{
+     transform: scale(1.2);
+    transition-duration: 0.5s;
+  }
+  .page-step-2 .md-row.hovering-on-3 .md-col-3{
+     transform: scale(1.2);
+    transition-duration: 0.5s;
+  }
+} 
+
 
 .page-step-2 .md-row .md-col-2{
   position: absolute;
@@ -580,6 +663,20 @@ img{
   animation: movein-1 4s;
   animation-fill-mode: forwards;
 }
+.page-step-2 .md-row.active-2 .md-col-2{
+  animation: movein-2 4s;
+  animation-fill-mode: forwards;
+}
+
+.page-step-2 .md-row.active-3 .md-col-3{
+  animation: movein-3 4s;
+  animation-fill-mode: forwards;
+}
+
+.page-step-2 .md-row.active-4 .md-col-4{
+  animation: movein-4 4s;
+  animation-fill-mode: forwards;
+}
 @keyframes movein-1{
   0%{
     left: 31.5%;
@@ -601,10 +698,7 @@ img{
     opacity: 1;
   }
 }
-.page-step-2 .md-row.active-2 .md-col-2{
-  animation: movein-2 4s;
-  animation-fill-mode: forwards;
-}
+
 @keyframes movein-2{
   0%{
     left: 42.5%;
@@ -629,11 +723,6 @@ img{
     opacity: 1;
   }
 }
-
-.page-step-2 .md-row.active-3 .md-col-3{
-  animation: movein-3 4s;
-  animation-fill-mode: forwards;
-}
 @keyframes movein-3{
   0%{
     right: 30.7%;
@@ -654,10 +743,6 @@ img{
     transform: scale(1.3);
     opacity: 1;
   }
-}
-.page-step-2 .md-row.active-4 .md-col-4{
-  animation: movein-4 4s;
-  animation-fill-mode: forwards;
 }
 @keyframes movein-4{
   0%{
@@ -967,7 +1052,7 @@ img{
 .md-product .title-product .md-title-sp{
   position: absolute;
     left: 50%;
-    top: 6.5%;
+    top: 2.5%;
     font-size: 1.9vw;
     transform: translateX(-50%);
     z-index: 5;
@@ -978,91 +1063,15 @@ img{
 }
 
 
-/*.page-step-2 .md-row.active-1 .md-product{
-  animation: md-product 2s;
-  animation-fill-mode: forwards;
-  display: block;
-  animation-delay: 4.3s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-2 .md-product{
-  animation: md-product 2s;
-  animation-fill-mode: forwards;
-  display: block;
-  animation-delay: 4.3s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-3 .md-product{
-  animation: md-product 2s;
-  animation-fill-mode: forwards;
-  display: block;
-  animation-delay: 4.3s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-4 .md-product{
-  animation: md-product 2.5s;
-  animation-fill-mode: forwards;
-  display: block;
-  animation-delay: 4.3s;
-  opacity: 0;
-}
-@keyframes md-product{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
 
-.page-step-2 .md-row.active-1 .btn-cf{
-  display: block;
-  animation: btn-cf 2.5s;
-  animation-fill-mode: forwards;
-  animation-delay: 3.7s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-2 .btn-cf{
-   display: block;
-  animation: btn-cf 2.5s;
-  animation-fill-mode: forwards;
-  animation-delay: 3.7s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-3 .btn-cf{
-   display: block;
-  animation: btn-cf 2.5s;
-  animation-fill-mode: forwards;
-  animation-delay: 3.7s;
-  opacity: 0;
-}
-.page-step-2 .md-row.active-4 .btn-cf{
-   display: block;
-  animation: btn-cf 2.5s;
-  animation-fill-mode: forwards;
-  animation-delay: 3.7s;
-  opacity: 0;
-}
-@keyframes btn-cf{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}*/
 
 .md-product .md-content{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 22%;
+  top: 10%;
   width: 100%;
   padding: 0px 10%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  height: 60%;
-  scroll-padding-top: 20%;
 }
 .md-product .md-content::-webkit-scrollbar {
   display: none; /* Ẩn thanh cuộn */
@@ -1074,10 +1083,7 @@ img{
   /* Ví dụ để dễ phân biệt */
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 7%;
-  margin-top: 5%;
-  height: 85%;
+  margin-bottom: 10%;
 }
 .md-product .product-col-1 .product-1{
   padding: 0px 5%;
@@ -1104,8 +1110,7 @@ img{
   font-style: italic;
 }
 .md-product .product-1 p.title-sp{
-  font-size: calc(3px + 0.8vw);
-  margin-bottom: 5px;
+  font-size: calc(6px + 1vw);
 }
 .md-product .product-2{
   left: 41%;
@@ -1228,11 +1233,13 @@ img{
   left: 42%;
     top: 37%;
     width: 15%;
-    opacity: 1;
+    opacity: 0;
     z-index: 1;
+    animation: img-ico-3 2s; 
+  animation-fill-mode: forwards;
 }
 .img-ico-3.active-ico{
-    animation: img-ico-3 3s; 
+    animation: img-ico-3 2s; 
   animation-fill-mode: forwards;
   display: block;
 }
@@ -1244,13 +1251,42 @@ img{
     display: block;
   }
   50%{
-    opacity: 1;
+    opacity: 0;
     z-index: 5;
     display: block;
   }
   100%{
-    opacity: 0;
+    opacity: 1;
+    z-index: 5;
+    display: block;
   }
+}
+
+.ani-choi{
+  position: absolute;
+  left: 58%;
+    top: 20%;
+    width: 15%;
+    z-index: 5;
+    animation: 2s ani-choi;
+}
+@keyframes ani-choi{
+  0%{
+    opacity: 1;
+  }
+  10%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
+  20%  { transform: rotate(8deg) translateX(2px); }
+  30%  { transform: rotate(-12deg) translateX(-3px); }
+  40%  { transform: rotate(6deg) translateX(2px); }
+  50% { transform: rotate(-16deg) translateX(-4px); opacity: 1;}
+  60%  { transform: rotate(6deg) translateX(2px); }
+  70% { transform: rotate(-12deg) translateX(-3px); opacity: 1;}
+  80%   { transform: rotate(-16deg) translateX(-4px); opacity:1; }
+  90%  { transform: rotate(8deg) translateX(2px); opacity:1; }
+
+    100%{
+      opacity: 1;
+    }
 }
 
 .md-desktop{
@@ -1260,8 +1296,14 @@ img{
   display: none;
 }
 @media screen and (max-width: 767px){
+  .ani-choi{
+    width: 25%;
+  }
+  .md-product .md-content{
+    top: 10%;
+  }
   .md-product .product-col-1{
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .page-main .md-form .error{
     font-size: 2.5vw;
@@ -1345,21 +1387,25 @@ img{
     0%{
       left: 7%
       transform: scale(1.0);
+      top: 44%;
     }
     30%{
       left: 31%;
       transform: scale(1.5);
       opacity: 1;
+      top: 39%;
     }
     70%{
       left: 31%;
       transform: scale(1.5);
       opacity: 1;
+      top: 39%;
     }
     100%{
       left: 31%;
       transform: scale(1.5);
       opacity: 1;
+      top: 39%;
     }
   }
   .page-step-2 .md-row .md-col-1 .sp-1{
@@ -1405,20 +1451,24 @@ img{
   @keyframes movein-3{
     0%{
       right: 6%;
+      top: 38.5%;
       transform: scale(1.0);
     }
     30%{
-      right: 26%;
+      right: 30%;
+      top: 34.5%;
       transform: scale(1.5);
       opacity: 1;
     }
     70%{
-      right: 26%;
+      right: 30%;
+      top: 34.5%;
       transform: scale(1.5);
       opacity: 1;
     }
     100%{
-      right: 26%;
+      right: 30%;
+      top: 34.5%;
       transform: scale(1.5);
       opacity: 1;
     }
@@ -1430,23 +1480,23 @@ img{
   }
   @keyframes movein-4{
     0%{
-      right: 50%;
+      right: 31%;
       transform: scale(1.0);
     }
     30%{
-      right: 22%;
+      right: 31%;
       transform: scale(1.5);
       top: 38%;
       opacity: 1;
     }
     70%{
-      right: 22%;
+      right: 31%;
       transform: scale(1.5);
       top: 38%;
       opacity: 1;
     }
     100%{
-      right: 22%;
+      right: 31%;
       transform: scale(1.5);
       top: 38%;
       opacity: 1;
@@ -1469,7 +1519,7 @@ img{
     bottom: 13%;
   }
   .md-product .product-1 p.title-sp{
-    font-size: calc(4px + 1.8vw);
+    font-size: calc(4px + 1.5vw);
   }
   .md-product .product-1 p{
     font-size: calc(6px + 2vw);
@@ -1483,9 +1533,6 @@ img{
     display: table;
     margin: 0 auto 5px auto;
   }
-  .md-product .product-1 p.title-sp{
-    margin-bottom: 3px;
-  }
   .btn-cf p{
     font-size: 4vw;
   }
@@ -1495,7 +1542,10 @@ img{
     width: 50%;
   }
   .custom-cursor{
-    width: 30%;
+    display: none !important;
+  }
+  .page-step-2 .md-row .md-col{
+    cursor: default !important;
   }
 }
 
@@ -1564,7 +1614,7 @@ img{
     left: 34%;
     top: 20%;
     width: 31%;
-    opacity: 1;
+    opacity: 0;
     z-index: 3;
 }
 .page-dientu .md-text-3 .md-title{

@@ -99,7 +99,7 @@ const children = document.querySelectorAll(".cursor-box");
 
 // *** KHỞI TẠO BIẾN ĐẾM CLICK VÀ BIẾN LƯU TRỮ ***
 let clickCount = 0;
-let lastClickedChild = null;
+let lastClickedChild = null; 
 
 // =======================================================
 // === 1. XỬ LÝ LỰA CHỌN (CLICK VÀO CURSOR-BOX) ===
@@ -129,66 +129,33 @@ children.forEach(child => {
         // Tăng biến đếm sau mỗi lần click
         clickCount++;
 
-        // ***************************************************************
-        // *** ĐIỀU KIỆN MỚI: CHỈ XỬ LÝ LƯU CHỌN KHI MÀN HÌNH >= 768px ***
-        // ***************************************************************
-        if (window.innerWidth >= 768) {
-             // --- Logic Xử lý CHỈ CHẠY khi clickCount >= 2 ---
-             // (Khi click 2 lần liên tiếp vào CÙNG 1 phần tử)
-            if (clickCount >= 2) {
+        // --- Logic Xử lý CHỈ CHẠY khi clickCount >= 2 ---
+        // (Khi click 2 lần liên tiếp vào CÙNG 1 phần tử)
+        if (clickCount >= 2) {
 
-                // --- Logic Xử lý Phần tử CHA ---
-                parent.classList.remove("active-1", "active-2", "active-3", "active-4");
-                const activeName = child.getAttribute("data-active");
-                parent.classList.add(activeName);
-
-                // --- Logic Xử lý Phần tử CON ---
-
-                // (1. Xoá class 'active' khỏi TẤT CẢ các div con khác)
-                children.forEach(c => {
-                     // Chỉ xóa class active khỏi những phần tử không phải là phần tử hiện tại
-                    if (c !== child) {
-                        c.classList.remove("active");
-                    }
-                });
-
-                // 2. Thêm class 'active' vào phần tử con vừa được click
-                child.classList.add("active");
-
-                // *** ĐẶT LẠI BIẾN ĐẾM VÀ BIẾN LƯU TRỮ ***
-                clickCount = 0;
-                lastClickedChild = child; // Giữ lại phần tử này để nó bị xóa ở lần chọn KHÁC tiếp theo
-            }
-        } else {
-            // *****************************************************************
-            // *** XỬ LÝ CHO MÀN HÌNH < 768px (Click ĐƠN giản, không cần đếm) ***
-            // *****************************************************************
-
-            // Trên màn hình nhỏ, giả sử bạn muốn click 1 lần là áp dụng luôn.
-            // Để đảm bảo logic `clickCount >= 2` KHÔNG được áp dụng,
-            // ta chỉ cần đảm bảo rằng **nếu màn hình nhỏ, ta phải thêm class 'active'
-            // và áp dụng cho parent ngay lập tức** (vì logic `clickCount >= 2`
-            // sẽ không được chạy).
-
-            // Đặt lại biến đếm (vì logic clickCount là vô nghĩa trên màn hình nhỏ)
-            clickCount = 0;
-            lastClickedChild = child; // Cập nhật phần tử cuối cùng
-
-            // **ÁP DỤNG KHI CLICK ĐƠN TRÊN MÀN HÌNH NHỎ (DƯỚI 768px)**
-            // Logic này phải là hành vi mong muốn khi chỉ cần 1 click trên màn hình nhỏ
+            // --- Logic Xử lý Phần tử CHA ---
             parent.classList.remove("active-1", "active-2", "active-3", "active-4");
             const activeName = child.getAttribute("data-active");
             parent.classList.add(activeName);
 
+            // --- Logic Xử lý Phần tử CON ---
+
+            // (1. Xoá class 'active' khỏi TẤT CẢ các div con khác - Đã được đảm bảo bằng logic bên trên, nhưng giữ lại để phòng trường hợp có nhiều hơn 1 active)
             children.forEach(c => {
-                 // Xóa class active khỏi những phần tử không phải là phần tử hiện tại
+                 // Chỉ xóa class active khỏi những phần tử không phải là phần tử hiện tại
                 if (c !== child) {
                     c.classList.remove("active");
                 }
             });
 
+            // 2. Thêm class 'active' vào phần tử con vừa được click
             child.classList.add("active");
+
+            // *** ĐẶT LẠI BIẾN ĐẾM VÀ BIẾN LƯU TRỮ ***
+            clickCount = 0;
+            lastClickedChild = child; // Giữ lại phần tử này để nó bị xóa ở lần chọn KHÁC tiếp theo
         }
+
     });
 });
 
@@ -607,24 +574,7 @@ $(document).ready(function() {
     }, 2000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
   });
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // 1. Khung chứa cuộn của bạn
-    const container = document.getElementById('scrollContainer'); 
-    
-    // 2. Section 1 (Section ngay trước Section 2)
-    const section1 = document.getElementById('md-section-1');
 
-    if (container && section1) {
-        // 3. Tính toán vị trí cần cuộn đến.
-        // Đây chính là chiều cao của Section 1.
-        // offsetHeight bao gồm padding, border và chiều cao nội dung.
-        const scrollToPosition = section1.offsetHeight;
-        
-        // ➡️ GÁN TRỰC TIẾP GIÁ TRỊ SCROLLTOP 
-        // Lệnh này lập tức đặt container vào vị trí đó mà không kích hoạt sự kiện cuộn.
-        container.scrollTop = scrollToPosition;
-    }
-});
 
   function chonToanBo(element) {
         element.select();
