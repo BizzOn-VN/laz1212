@@ -589,7 +589,7 @@ img{
 .custom-cursor {
   position: absolute;
   top: 0;
-  left: 7%;
+  left: 6%;
   pointer-events: none;
   user-select: none;
   transform: translate(-50%, -50%);
