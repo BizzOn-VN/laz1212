@@ -1110,7 +1110,6 @@ img{
 }
 .md-product .product-1 p.title-sp{
   font-size: calc(6px + 1vw);
-  color: #FFF;
 }
 .md-product .product-2{
   left: 41%;
@@ -1580,7 +1579,7 @@ img{
   }
 }
 .page-step-2{
-  animation: next-page 2s;
+  animation: next-page 1s;
 }
 @keyframes next-page{
   0%{
