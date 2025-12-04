@@ -568,7 +568,7 @@ $(document).ready(function() {
       if (targetDiv) {
         targetDiv.scrollIntoView({
           behavior: 'smooth', // Cuộn mượt mà
-          block: 'start'      // Căn chỉnh mép trên phần tử với mép trên màn hình
+          block: 'center'      // Căn chỉnh mép trên phần tử với mép trên màn hình
         });
       }
     }, 3000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
