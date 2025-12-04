@@ -1542,11 +1542,10 @@ img{
     width: 50%;
   }
   .custom-cursor{
-    display: none !important;
+   width: 30%;
+   display: block !important;
   }
-  .page-step-2 .md-row .md-col{
-    cursor: default !important;
-  }
+
 }
 
 .page-main .md-header{
@@ -1759,6 +1758,18 @@ img{
     }
     .page-thoitrang .md-row .md-col-3 .sp-3{
       margin-top: -72%;
+    }
+    .page-step-2 .md-row.active-1 .custom-cursor{
+      display: none !important;
+    }
+    .page-step-2 .md-row.active-2 .custom-cursor{
+      display: none !important;
+    }
+    .page-step-2 .md-row.active-3 .custom-cursor{
+      display: none !important;
+    }
+    .page-step-2 .md-row.active-4 .custom-cursor{
+      display: none !important;
     }
 }
 input[type="number"]::-webkit-outer-spin-button,
