@@ -571,7 +571,7 @@ $(document).ready(function() {
           block: 'start'      // Căn chỉnh mép trên phần tử với mép trên màn hình
         });
       }
-    }, 2500); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
+    }, 3000); // <-- Thời gian chờ tính bằng miligiây (ở đây là 2 giây)
   });
 
 
