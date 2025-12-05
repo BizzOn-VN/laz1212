@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const addRightClass = () => {
         otpContainer.classList.add('active-1');
-        playErrorSound(); 
+        playSuccessSound(); 
     };
 
     // --- Hàm Logic Xác nhận (ĐÃ CẬP NHẬT) ---

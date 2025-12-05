@@ -231,9 +231,9 @@ img{
 }
 .page-dientu .md-text-3{
   position: absolute;
-      left: 22%;
+      left: 27%;
     top: 3.5%;
-    width: 55.5%;
+    width: 50%;
 }
 .page-step-2 .md-text-3 .md-title{
   position: absolute;
@@ -1011,9 +1011,9 @@ img{
 
 .btn-cf{
   position: absolute;
-      left: 32.5%;
-    top: 30%;
-    width: 36%;
+    left: 37.5%;
+    top: 27.5%;
+    width: 28%;
   transition-duration: 0.5s !important;
   z-index: 3;
 }
@@ -1022,7 +1022,7 @@ img{
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  font-size: 3vw;
+  font-size: 2.5vw;
   z-index: 2;
   color: #FFF;
   width: 100%;
@@ -1042,7 +1042,7 @@ img{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 40%;
+  top: 37%;
   opacity: 1;
 }
 .md-product .title-product{
@@ -1264,12 +1264,13 @@ img{
 
 .ani-choi{
   position: absolute;
-  left: 53%;
-    top: 15%;
-    width: 15%;
+  left: 55%;
+    top: 14%;
+    width: 12%;
     z-index: 5;
     animation: 2s ani-choi;
     animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 @keyframes ani-choi{
   0%{
@@ -1286,7 +1287,7 @@ img{
   90%  { transform: rotate(8deg) translateX(2px); opacity:1; }
 
     100%{
-      opacity: 1;
+      opacity: 0;
     }
 }
 
@@ -1570,14 +1571,10 @@ img{
 }
 @keyframes effect-img-2{
   0%{
-    transform: scale(0.0);
+    transform: scale(1.0);
     opacity: 0;
   }
-  10%{
-    transform: scale(1.0);
-    opacity: 1;
-  }
-  50%{
+  20%{
     transform: scale(1.0);
     opacity: 1;
   }
@@ -1619,15 +1616,18 @@ img{
 }
 .page-dientu .img-ico-3{
       position: absolute;
-    left: 38%;
+    left: 40%;
     top: 15%;
-    width: 25%;
+    width: 22%;
     opacity: 0;
     z-index: 3;
     animation-delay: 1s;
 }
+.page-giadung .img-ico-3{
+  top: 13%;
+}
 .page-dientu .md-text-3 .md-title{
-  font-size: 3vw;
+  font-size: 2.5vw;
   line-height: 1.2;
   width: 100%;
 }
@@ -1641,6 +1641,15 @@ img{
     top: 13%;
     width: 29.5%;
     
+}
+.page-giadung .ani-choi{
+  top: 11%;
+}
+.page-giadung .btn-cf{
+  top: 25.5%;
+}
+.page-thoitrang .ani-choi{
+  top: 11%;
 }
 .page-dientu .md-row .md-col .sp-1{
   animation: light-sp-1 2s;
@@ -1679,17 +1688,17 @@ img{
   width: 50%;
 }
 .page-dientu .md-row .md-col-1{
-  width: 35%;
-  left: 33.5%;
-  top: 15%;
+  width: 32%;
+    left: 35.5%;
+    top: 12%;
 }
 .page-dientu .md-row .md-col-3{
-  width: 25%;
-  left: 37.5%;
+  width: 22%;
+  left: 40.5%;
 }
 .page-dientu .md-row .md-col-4{
-  width: 25%;
-  left: 37.5%;
+  width: 22%;
+  left: 40.5%;
   z-index: 2;
 }
 .page-dientu .md-row .md-col-1 .md-sp{
@@ -1711,11 +1720,14 @@ img{
   }
 }
 @media screen and (max-width: 767px){
+  .page-giadung .btn-cf{
+    top: 33%;
+  }
       .page-dientu .md-text-3 {
         position: absolute;
-        left: 10%;
-        width: 78%;
-        top: 4%;
+        left: 15%;
+        width: 70%;
+        top: 6%;
     }
     .page-dientu .md-row .md-col-1 .sp-1{
       margin-top: -31%;
@@ -1733,6 +1745,9 @@ img{
       left: 31%;
         top: 18%;
         width: 39%;
+    }
+    .page-giadung .img-ico-3{
+      top: 15%;
     }
     .ani-choi{
       left: 60%;
