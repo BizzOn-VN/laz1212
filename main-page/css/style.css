@@ -1086,6 +1086,7 @@ img{
 }
 .md-product .product-col-1 .product-1{
   padding: 0px 5%;
+  width: 33%;
 }
 .md-product .product-1 img{
   margin-bottom: 10px;
@@ -1109,7 +1110,7 @@ img{
   font-style: italic;
 }
 .md-product .product-1 p.title-sp{
-  font-size: calc(6px + 1vw);
+  font-size: calc(4px + 1vw);
 }
 .md-product .product-2{
   left: 41%;
@@ -1519,7 +1520,7 @@ img{
     bottom: 13%;
   }
   .md-product .product-1 p.title-sp{
-    font-size: calc(4px + 1.5vw);
+    font-size: calc(3px + 1.5vw);
   }
   .md-product .product-1 p{
     font-size: calc(6px + 2vw);
